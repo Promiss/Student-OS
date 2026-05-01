@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description"
+			content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at  the highest level of quality.                             ">
+		<meta name="author" content="Webpixels">
+		<title>用户登陆</title>
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+		<!-- Theme CSS -->
+		<link type="text/css" href="../assets/css/theme.css" rel="stylesheet">
+		<!-- Demo CSS - No need to use these in your project -->
+		<link type="text/css" href="../assets/css/demo.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../assets/css/new.css"/>
+		<link type="text/css" href="../assets/css/signup.css" rel="stylesheet">
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-transparent navbar-dark py-4">
+			<div class="container">
+				<a class="navbar-brand" href="#"><img src="../assets/images/backgrounds/logo.png" width="80%">
+					<!-- <strong>"一站式"学生服务信息平台</strong>（试运行） --></a>
+				<button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main"
+					aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+					<ul class="navbar-nav ml-auto align-items-lg-center">
+						<li class="nav-item">
+							<a class="nav-link" href="../index.html">欢迎</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="sign-in.html">登录</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="sign-up.html">注册</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="contact.html">帮助</a>
+						</li><!-- active -->
+						<!-- 						<li class="nav-item dropdown">  
+									<a class="nav-link dropdown-toggle" href="#" id="navbar_main_dropdown_1" role="button"
+										data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">发现</a>
+									<div class="dropdown-menu" aria-labelledby="navbar_1_dropdown_1">
+										<a class="dropdown-item" href="./pages/sign-in.html">用户登陆</a>
+										<a class="dropdown-item" href="./pages/contact.html">更多帮助</a>	
+									</div>
+								</li> -->
+						<!-- 						<li class="nav-item">
+									<form class="form-inline my-2 my-lg-0">
+										<input class="form-control form-control-sm mr-sm-2" type="search" placeholder="业务办理"
+											aria-label="Search">
+										<button class="btn btn-sm btn-primary my-2 my-sm-0" type="submit">检索</button>
+									</form>
+								</li> -->
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<main class="main">
+			<section class="py-xl bg-cover bg-size--cover"
+				style="background-image: url('../assets/images/backgrounds/banner.png')">
+				<span class="mask bg-primary alpha-6"></span>
+				<div class="container d-flex align-items-center no-padding">
+					<div class="col">
+						<div class="row justify-content-center">
+							<div class="col-lg-4">
+								<div class="card bg-primary text-white">
+									<div class="card-body">
+										<button type="button" class="btn btn-primary btn-nobg btn-zoom--hover mb-4">
+											<span class="btn-inner--icon">
+												<a class=" fh" style="color: #FFFFFF; width: 1rem;" href="../index.html"><i class="fas fa-arrow-left"></i></a></span>
+												
+										</button>
+										<span class="clearfix"></span>
+										<img src="../assets/images/brand/icon.png" style="width: 50px;">
+										<h4 class="heading h3 text-white pt-3 pb-4">欢迎回来<br>
+											现在开始登录吧~</h4>
+												
+											
+										<form class="form-primary" action="../login.html" method="post" onsubmit="return validateForm()">            
+											<!-- validateForm  验证账号密码非空 -->
+											<div class="form-group">
+												<input type="text" class="form-control" id="input_text" placeholder="用户名/学号/工号" required>
+											</div>
+											<div class="form-group">
+												<input type="password" class="form-control" id="input_password" placeholder="密码" required>
+											</div>
+											<div class="text-right mt-4"><a href="#" class=" text-white " data-toggle="modal" data-target="#modal_1" class="text-white">忘记密码?</a></div>
+											
+											<button type="submit" class="btn btn-block btn-lg bg-white mt-4 btn-animated btn-animated-x">
+												<span class="btn-inner--visible">登录</span>
+												<span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span>
+											</button>
+										</form>
+										
+										<!-- 忘记密码嵌入页面 -->
+										<div class="modal modal-fluid fade" id="modal_1" tabindex="-1" role="dialog" aria-labelledby="modal_1" aria-hidden="true">
+										    <div class="modal-dialog modal-lg" role="document">
+										        <div class="modal-content">
+										            <div class="modal-body">
+										                <div class="row justify-content-center">
+										                    <div class="col-lg-8 text-center py-4">
+										                        <h4 class="heading h3">您正在找回密码!</h4>
+										                        <p class="lead text-muted">
+										                           为了您的帐号安全，我们为您提供了以下方式找回密码的方式:
+										                        </p>
+										                        <div class="mb-5">
+										                            <form class="form-group" id="reset_password_form" action="">
+										                            	<div class="form-group">
+										                            	    <input type="text" class="form-control" placeholder="用户名/ID">
+										                            	</div>
+										                            	
+																				<div class="input-group form-group mb-3">
+																				    <input type="text" class="form-control" placeholder="邮箱" aria-label="Recipient's username" aria-describedby="basic-addon2" id="reset_email">
+																				    <div class="input-group-append">
+																				        <button class="btn btn-primary" type="button">发送邮件</button>
+																				    </div>
+																				</div>
+																				<div class="form-group">
+																					<input type="text" class="form-control" placeholder="验证码">
+																				</div>
+																				<div class="form-group">
+										                            		<input type="password" class="form-control" id="reset_password"
+										                            			placeholder="更改密码">
+										                            	</div>
+										                            	<div class="form-group">
+										                            		<input type="password" class="form-control" id="confirm_reset_password"placeholder="再次输入密码">
+										                            	</div>
+										                            	<button type="submit" id="reset_submit" class="btn btn-block btn-primary btn-lg bg-white mt-5 btn-animated btn-animated-x">
+										                            	    <span class="btn-inner--visible">找回密码</span>
+										                            	    <span class="btn-inner--hidden"><i class="fas fa-arrow-right"></i></span>
+										                            	</button>
+										                            </form>
+										                        </div>
+										                    </div>
+										                </div>
+										            </div>
+										        </div>
+										    </div>
+										</div>
+										<!-- ---忘记密码嵌入页面--- -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		
+		<footer class="pt-5 pb-3 footer  footer-dark bg-tertiary bj">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-4">
+						<div class="pr-lg-5">
+							<h1 class="heading h6 text-uppercase font-weight-700 mb-3"><a href="http://www.hngzy.edu.cn">
+							<img src="http://www.hngzy.edu.cn/images/foot-logo.png" width="100%"></a></h1>
+							<P><img src="../assets/images/backgrounds/xx.png"></P>
+						</div>
+					</div>
+					<div class="col-6 col-md">
+						<h5 class="heading h6 text-uppercase font-weight-700 mb-3">新手入门</h5>
+						<ul class="list-unstyled text-small">
+							<li><a class="text-muted" href="#">名词解释</a></li>
+							<li><a class="text-muted" href="#">使用手册（学生端）</a></li>
+							<li><a class="text-muted" href="#">操作文档（教师端）</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-md">
+						<h5 class="heading h6 text-uppercase font-weight-700 mb-3">服务支持</h5>
+						<ul class="list-unstyled text-small">
+							<li><a class="text-muted" href="#">帮助中心</a></li>
+							<li><a class="text-muted" href="#">隐私政策</a></li>
+							<li><a class="text-muted" href="#">服务协议</a></li>
+							<li><a class="text-muted" href="#">知识产权</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-md">
+						<h5 class="heading h6 text-uppercase font-weight-700 mb-3">加入我们</h5>
+						<ul class="list-unstyled text-small">
+							<li><a class="text-muted" href="#">社团</a></li>
+							<li><a class="text-muted" href="#">新媒体</a></li>
+							<li><a class="text-muted" href="#">志愿服务队</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-md">
+						<h5 class="heading h6 text-uppercase font-weight-700 mb-3">友情链接</h5>
+						<ul class="list-unstyled text-small">
+							<li><a class="text-muted" href="https://hljswkj.jw.chaoxing.com/admin/login">教务系统</a></li>
+							<li><a class="text-muted" href="https://www.hljbys.org.cn/school/index?mark=hngzy">就业平台</a>
+							</li>
+							<li><a class="text-muted" href="#">VPN客户端</a></li>
+							<li><a class="text-muted" href="#">双创竞赛平台</a></li>
+						</ul>
+					</div>
+				</div>
+				<hr>
+				<div class="d-flex align-items-center">
+					<span class="">
+						Copyright &copy; 2025 <a href="http://www.hngzy.edu.cn/index.htm" class="footer-link"
+							target="_blank">黑龙江农业工程职业学院 · 版权所有</a> All Rights Reserved <a
+							href="https://beian.miit.gov.cn/" class="footer-link" target="_blank">黑ICP备05004682号-1</a>
+					</span>
+					<ul class="nav ml-lg-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="http://www.hngzy.edu.cn/" target="_blank"><i
+									class="fas fa-university"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="http://weixin.qq.com/r/GkhocHPE6y6UrTcT9x0I" target="_blank"><i
+									class="fab fa-weixin"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://im.qq.com/index/" target="_blank"><i
+									class="fab fa-qq"></i></a>
+						</li>
+						<!-- <li class="nav-item">
+							<a class="nav-link active" href="https://www.douyin.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</footer>
+		<!-- Core -->
+		<script src="../assets/vendor/jquery/jquery.min.js"></script>
+		<script src="../assets/vendor/popper/popper.min.js"></script>
+		<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+		<!-- FontAwesome 5 -->
+		<script src="../assets/vendor/fontawesome/js/fontawesome-all.min.js" defer></script>
+		<!-- Page plugins -->
+		<script src="../assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+		<script src="../assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+		<script src="../assets/vendor/input-mask/input-mask.min.js"></script>
+		<script src="../assets/vendor/nouislider/js/nouislider.min.js"></script>
+		<script src="../assets/vendor/textarea-autosize/textarea-autosize.min.js"></script>
+		<!-- Theme JS -->
+		<script src="../assets/js/theme.js"></script>
+		<script>
+		$(document).ready(function() {
+			// 获取忘记密码弹窗中的密码输入框
+			const $resetPassword = $('#reset_password');
+			const $confirmResetPassword = $('#confirm_reset_password');
+			const $resetSubmitBtn = $('#reset_submit');
+			
+			// 添加密码输入框的验证状态提示
+			$resetPassword.after('<div class="password-strength"></div>');
+			$confirmResetPassword.after('<div class="password-match"></div>');
+			
+			// 验证密码强度和一致性
+			function validateResetPasswords() {
+				const password = $resetPassword.val();
+				const confirmPassword = $confirmResetPassword.val();
+				let isValid = true;
+				
+				// 清除之前的验证状态
+				$resetPassword.removeClass('signup-input-error signup-input-success');
+				$confirmResetPassword.removeClass('signup-input-error signup-input-success');
+				$('.password-strength, .password-match').removeClass('signup-error-text signup-success-text');
+				
+				// 验证密码强度
+				if (password) {
+					const strongRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+					if (!strongRegex.test(password)) {
+						$resetPassword.addClass('signup-input-error');
+						$('.password-strength')
+							.text('密码至少8位，包含大小写字母和数字')
+							.addClass('signup-error-text')
+							.fadeIn(200);
+						isValid = false;
+					} else {
+						$resetPassword.addClass('signup-input-success');
+						$('.password-strength')
+							.text('密码强度符合要求')
+							.addClass('signup-success-text')
+							.fadeOut(1000);
+					}
+				}
+				
+				// 验证密码一致性
+				if (confirmPassword) {
+					if (password !== confirmPassword) {
+						$confirmResetPassword.addClass('signup-input-error');
+						$('.password-match')
+							.text('两次输入的密码不一致')
+							.addClass('signup-error-text')
+							.fadeIn(200);
+						isValid = false;
+					} else {
+						$confirmResetPassword.addClass('signup-input-success');
+						$('.password-match')
+							.text('密码输入一致')
+							.addClass('signup-success-text')
+							.fadeOut(1000);
+					}
+				}
+				
+				// 更新提交按钮状态
+				$resetSubmitBtn.prop('disabled', !isValid);
+				return isValid;
+			}
+			
+			// 绑定输入事件
+			let validateResetTimer;
+			$resetPassword.add($confirmResetPassword).on('input', function() {
+				clearTimeout(validateResetTimer);
+				
+				const $input = $(this);
+				if ($input.is($resetPassword)) {
+					$('.password-strength').stop(true, true).fadeIn(200);
+				} else {
+					$('.password-match').stop(true, true).fadeIn(200);
+				}
+				
+				validateResetTimer = setTimeout(validateResetPasswords, 500);
+			});
+			
+			// 表单提交验证
+			$('#reset_password_form').on('submit', function(e) {
+				if (!validateResetPasswords()) {
+					e.preventDefault();
+				}
+			});
+		});
+		</script>
+		<script>
+		function validateForm() {
+			var username = document.getElementById("input_text").value;
+			var password = document.getElementById("input_password").value;
+			
+			if (username == "") {
+				alert("用户名不能为空");
+				return false;
+			}
+			
+			if (password == "") {
+				alert("密码不能为空");
+				return false;
+			}
+			
+			return true;
+		}
+		</script>
+	</body>
+</html>

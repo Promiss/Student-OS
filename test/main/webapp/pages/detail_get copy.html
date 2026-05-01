@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description"
+		content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at  the highest level of quality.                             ">
+	<meta name="author" content="Webpixels">
+	<title>申请详情 - "一站式"学生社区综合服务平台</title>
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+	<!-- Theme CSS -->
+	<link type="text/css" href="../assets/css/theme.css" rel="stylesheet">
+	<!-- Demo CSS - No need to use these in your project -->
+	<link type="text/css" href="../assets/css/demo.css" rel="stylesheet">
+	<link rel="stylesheet" href="../assets/css/login.css">
+	<link rel="stylesheet" href="../assets/css/detail.css">
+	<link type="text/css" href="../assets/css/detail_get.css" rel="stylesheet">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css">
+	<!-- 添加 Bootstrap Datepicker CSS -->
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+	<style>
+		
+		body {
+            background-color: #f0f5ff;
+            font-family: "Microsoft YaHei", sans-serif;
+            overflow: hidden; /* 防止页面滚动 */
+            height: 100vh;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            height: 56px; /* 固定导航栏高度 */
+        }
+        
+        .nav-link {
+            color: #666;
+            padding: 0.5rem 1rem;
+            margin: 0 0.2rem;
+            border-radius: 4px;
+        }
+        
+        .nav-link.active {
+            background-color: #4a7bff;
+            color: white;
+        }
+        
+        .main-content {
+            background-color: #e9f0ff;
+            height: calc(100vh - 56px); /* 减去导航栏高度 */
+            overflow: hidden; /* 防止内容滚动 */
+            padding: 10px 0;
+        }
+        
+        .content-container {
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .left-column, .right-column {
+            height: 100%;
+            overflow-y: auto; /* 允许列内滚动 */
+            padding-right: 5px;
+            scrollbar-width: thin;
+        }
+        
+        .left-column::-webkit-scrollbar, .right-column::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .left-column::-webkit-scrollbar-thumb, .right-column::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        
+        .info-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px;
+            margin-bottom: 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .info-group-left {
+            display: flex;
+            flex-direction: column;
+            width: 48%;
+        }
+        
+        .info-group-right {
+            width: 52%;
+        }
+        
+        .sub-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 12px;
+            margin-bottom: 10px;
+            height: calc(50% - 5px);
+        }
+        
+        .sub-card:last-child {
+            margin-bottom: 0;
+        }
+        
+        .student-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .student-avatar-container {
+            position: relative;
+            margin-bottom: 15px;
+            z-index: 1;
+        }
+        
+        .student-avatar {
+            width: 335px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .student-info-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            z-index: 2;
+            transition: all 0.3s ease;
+            max-height: 90%;
+            overflow-y: auto;
+        }
+        
+        .student-info-left:hover {
+            transform: translateY(-50%) translateX(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .student-info-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 35%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .student-info-right:hover {
+            transform: translateY(-50%) translateX(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .student-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .student-id {
+            color: #666;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .student-info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .student-info-list li {
+            margin-bottom: 5px;
+            display: flex;
+        }
+        
+        .info-label {
+            width: 70px;
+            color: #666;
+        }
+        
+        .info-value {
+            flex: 1;
+            color: #333;
+        }
+        
+        .teacher-info {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            text-align: right;
+        }
+        
+        .teacher-item {
+            margin-bottom: 8px;
+            position: relative;
+        }
+        
+        .teacher-tooltip {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 8px;
+            width: 200px;
+            z-index: 100;
+            text-align: left;
+        }
+        
+        .teacher-item:hover .teacher-tooltip {
+            display: block;
+        }
+        
+        .dorm-info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .dorm-info-table td {
+            padding: 8px;
+            border: 1px solid #eee;
+        }
+        
+        .dorm-change-table {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .dorm-change-table th {
+            background-color: #f5f5f5;
+            padding: 8px;
+            text-align: center;
+        }
+        
+        .dorm-change-table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+        
+        .notification-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .notification-icon {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #ff9f43;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-title {
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+        }
+        
+        .notification-date {
+            font-size: 0.75rem;
+            color: #999;
+        }
+        
+        .stat-card {
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            color: white;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card.blue {
+            background-color: #4a7bff;
+        }
+        
+        .stat-card.green {
+            background-color: #4cd3a9;
+        }
+        
+        .stat-card.purple {
+            background-color: #a17bff;
+        }
+        
+        .stat-card.orange {
+            background-color: #ff9f43;
+        }
+        
+        .stat-icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        .stat-title {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .activity-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .activity-table th {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .activity-table td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        
+        .education-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .education-table th {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .education-table td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .warning-chart-container {
+            height: 180px;
+        }
+        
+        .stats-row {
+            margin-bottom: 10px;
+        }
+        
+        .stats-row .col-3, .stats-row .col-6 {
+            padding: 0 5px;
+        }
+        
+        .compact-card {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .stats-container .stat-card {
+            height: 100px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .stats-container .stat-wide {
+            grid-column: span 2;
+            height: 100px;
+        }
+        
+        .stat-card {
+            border-radius: 10px;
+            padding: 15px;
+            color: white;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .stat-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2.5rem;
+            opacity: 0.2;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover .stat-icon {
+            opacity: 0.4;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .stat-title {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .stat-subvalue {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .student-profile {
+                flex-direction: column;
+            }
+            
+            .student-avatar {
+                width: 120px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .teacher-info {
+                position: static;
+                text-align: left;
+                margin-top: 15px;
+            }
+            
+            .teacher-tooltip {
+                left: 0;
+                right: auto;
+            }
+        }
+		
+		.section-title {
+			color: #2c3e50;
+			font-weight: 600;
+			margin-bottom: 1.5rem;
+			padding-bottom: 0.5rem;
+			border-bottom: 2px solid #e9ecef;
+		}
+
+		.form-section {
+			background: #ffffff;
+			padding: 25px;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+			margin-bottom: 20px;
+		}
+
+		.form-label {
+			color: #495057;
+			font-weight: 500;
+			margin-bottom: 0.5rem;
+		}
+
+		.required-star {
+			color: #dc3545;
+			font-style: normal;
+			margin-left: 2px;
+		}
+
+		.custom-input {
+			border: 1px solid #ced4da;
+			border-radius: 4px;
+			padding: 0.5rem 0.75rem;
+			background-color: #f8f9fa;
+			transition: all 0.3s ease;
+		}
+
+		.custom-input:focus {
+			border-color: #80bdff;
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+		}
+
+		.photo-container {
+			text-align: center;
+			margin-top: 10px;
+			padding: 20px;
+		}
+
+		.photo-frame {
+			width: 120px;
+			height: 160px;
+			border: 2px dashed #4299e1;
+			margin: 0 auto;
+			background: #f8fafc;
+			overflow: hidden;
+			position: relative;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			border-radius: 4px;
+		}
+
+		.photo-frame:hover {
+			border-color: #2b6cb0;
+			box-shadow: 0 2px 4px rgba(66, 153, 225, 0.1);
+		}
+
+		.photo-frame.dragover {
+			border-color: #2b6cb0;
+			background-color: rgba(66, 153, 225, 0.05);
+		}
+
+		.student-photo {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.photo-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(255, 255, 255, 0.95);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.photo-frame:hover .photo-overlay {
+			opacity: 1;
+		}
+
+		.photo-overlay i {
+			font-size: 24px;
+			margin-bottom: 12px;
+			background: linear-gradient(45deg, #4299e1, #2b6cb0);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		.photo-overlay p {
+			font-size: 14px;
+			margin: 0;
+			padding: 0 10px;
+			text-align: center;
+			line-height: 1.5;
+			background: linear-gradient(45deg, #4299e1, #2b6cb0);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: 500;
+		}
+
+		.photo-label {
+			margin-top: 12px;
+			color: #4a5568;
+			font-size: 14px;
+			font-weight: 500;
+			text-align: center;
+		}
+
+		/* 添加照片上传提示动画 */
+		@keyframes bounce {
+
+			0%,
+			100% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(-3px);
+			}
+		}
+
+		.photo-frame:hover .photo-overlay i {
+			animation: bounce 1s infinite;
+		}
+
+		/* 申请报名信息样式 */
+		.custom-select {
+			height: calc(1.5em + 1rem + 2px);
+			padding: .5rem 1rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			background-color: #fff;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+			transition: all .2s ease;
+		}
+
+		.custom-select:focus {
+			border-color: #4299e1;
+			box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+		}
+
+		.custom-select:disabled {
+			background-color: #f7fafc;
+			cursor: not-allowed;
+		}
+
+		.custom-textarea {
+			resize: vertical;
+			min-height: 100px;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+			transition: all .2s ease;
+		}
+
+		.custom-textarea:focus {
+			border-color: #4299e1;
+			box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+		}
+
+		.required-star {
+			color: #e53e3e;
+			margin-left: 2px;
+		}
+
+		.form-label {
+			font-weight: 500;
+			color: #2d3748;
+			margin-bottom: .5rem;
+		}
+
+		.input-group-text {
+			background-color: #f7fafc;
+			border: 1px solid #e2e8f0;
+		}
+
+		.alert-float {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 9999;
+			min-width: 250px;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		}
+
+		/* 日期选择器样式 */
+		.bootstrap-datetimepicker-widget {
+			background-color: #fff;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+		}
+
+		.bootstrap-datetimepicker-widget table td.disabled,
+		.bootstrap-datetimepicker-widget table td.disabled:hover {
+			background-color: #f7fafc;
+			color: #a0aec0;
+			cursor: not-allowed;
+		}
+
+		.was-validated .form-control:invalid,
+		.form-control.is-invalid {
+			border-color: #e53e3e;
+			padding-right: calc(1.5em + .75rem);
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23e53e3e' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23e53e3e' stroke='none'/%3e%3c/svg%3e");
+			background-repeat: no-repeat;
+			background-position: right calc(.375em + .1875rem) center;
+			background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+		}
+
+		.invalid-tooltip {
+			position: absolute;
+			top: 100%;
+			z-index: 5;
+			display: none;
+			max-width: 100%;
+			padding: .25rem .5rem;
+			margin-top: .1rem;
+			font-size: .875rem;
+			line-height: 1.5;
+			color: #fff;
+			background-color: #e53e3e;
+			border-radius: .25rem;
+		}
+
+		/* 日期选择器样式优化 */
+		.datepicker {
+			padding: 10px;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+			background-color: #fff;
+			z-index: 1060 !important;
+		}
+
+		.datepicker-days {
+			padding: 5px;
+		}
+
+		.datepicker table {
+			width: 100%;
+		}
+
+		.datepicker table tr td,
+		.datepicker table tr th {
+			text-align: center;
+			width: 30px;
+			height: 30px;
+			border-radius: .25rem;
+		}
+
+		.datepicker table tr td.day:hover {
+			background: #e9ecef;
+			cursor: pointer;
+		}
+
+		.datepicker table tr td.active,
+		.datepicker table tr td.active:hover {
+			background-color: #4299e1 !important;
+			color: #fff;
+		}
+
+		.datepicker table tr td.today {
+			background-color: #ebf8ff;
+			color: #2b6cb0;
+		}
+
+		.datepicker .datepicker-switch,
+		.datepicker .prev,
+		.datepicker .next {
+			cursor: pointer;
+			padding: 5px;
+		}
+
+		.datepicker .datepicker-switch:hover,
+		.datepicker .prev:hover,
+		.datepicker .next:hover {
+			background: #e9ecef;
+			border-radius: .25rem;
+		}
+
+		.datepicker-quick-picks {
+			margin-top: 10px;
+			padding: 8px;
+			background-color: #f8fafc;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+		}
+
+		.datepicker-quick-picks .btn {
+			padding: 4px 8px;
+			font-size: 12px;
+		}
+
+		.datepicker-quick-picks .btn:hover {
+			background-color: #4299e1;
+			border-color: #4299e1;
+			color: #fff;
+		}
+
+		/* 表单验证样式 */
+		.was-validated .form-control:invalid:focus,
+		.was-validated .custom-select:invalid:focus {
+			border-color: #e53e3e;
+			box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15);
+		}
+
+		.was-validated .form-control:valid:focus,
+		.was-validated .custom-select:valid:focus {
+			border-color: #48bb78;
+			box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.15);
+		}
+
+		/* 加载动画样式 */
+		.spinner-border-sm {
+			width: 1rem;
+			height: 1rem;
+			border-width: 0.2em;
+		}
+
+		/* 过渡效果 */
+		.form-control,
+		.custom-select {
+			transition: all 0.2s ease-in-out;
+		}
+
+		.form-control:disabled,
+		.custom-select:disabled {
+			background-color: #f7fafc;
+			cursor: not-allowed;
+		}
+
+		/* 提示信息样式 */
+		.alert-float {
+			animation: slideIn 0.3s ease-out;
+		}
+
+		/* 承诺声明样式 */
+		.custom-control-label {
+			font-size: 1rem;
+			color: #2d3748;
+			padding-top: 2px;
+		}
+
+		.custom-control-label::before {
+			width: 1.25rem;
+			height: 1.25rem;
+			border-radius: .25rem;
+			border: 2px solid #e2e8f0;
+			background-color: #fff;
+			transition: all .2s ease;
+		}
+
+		.custom-control-label::after {
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+
+		.custom-control-input:checked~.custom-control-label::before {
+			border-color: #4299e1;
+			background-color: #4299e1;
+		}
+
+		.custom-control-input:focus~.custom-control-label::before {
+			box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+		}
+
+		.custom-control {
+			padding-left: 2rem;
+		}
+
+		.custom-control-input:disabled~.custom-control-label::before {
+			background-color: #f7fafc;
+		}
+
+		/* 提交按钮样式 */
+		.form-submit .btn {
+			min-width: 200px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			transition: all .3s ease;
+		}
+
+		.form-submit .btn:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		}
+
+		@keyframes slideIn {
+			from {
+				transform: translateY(-100%);
+				opacity: 0;
+			}
+
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<nav class="navbar navbar-expand-lg navbar-transparent navbar-dark py-4">
+			<div class="container">
+				<a class="navbar-brand" href="#"><img src="../assets/images/backgrounds/logo.png" width="80%">
+					<!-- <strong>"一站式"学生服务信息平台</strong>（试运行） --></a>
+				<button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main"
+					aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+					<ul class="navbar-nav ml-auto align-items-lg-center">
+						<li class="nav-item">
+							<a class="nav-link" href="http://www.hngzy.edu.cn/">学院主页</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../main.html">系统应用</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="#">流程服务</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="index.jsp?choice=4">数据中心</a>
+						</li>
+						<li class="nav-item">
+							<div class="dropdown">
+								<button class="btn btn-primary btn-icon-only rounded-circle" type="button"
+									id="dropdown_user_account" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									<!-- <span class="btn-inner--icon">
+											<i class="fas fa-user"></i>
+										</span>  -->
+									<img src="../assets/images/avatars/user.jpg" class="avatar avatar-lg mr-3"
+										style="width: 50px; height: 50px;">
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdown_user_account">
+									<h6 class="dropdown-header">我是学号</h6>
+									<a class="dropdown-item" href="#">
+										<span class="float-right badge badge-primary">4</span>
+										<i class="fas fa-envelope text-primary"></i>系统消息
+									</a>
+									<a class="dropdown-item" href="#">
+										<i class="fas fa-cog text-primary"></i>个人资料
+									</a>
+									<div class="dropdown-divider" role="presentation"></div>
+									<a class="dropdown-item" href="#">
+										<i class="fas fa-sign-out-alt text-primary"></i>退出登录
+									</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- 轮播图 -->
+		 <!-- 主要内容 -->
+		 <div class="main-content">
+			<div class="container content-container">
+				<div class="row h-100">
+					<!-- 左侧内容 -->
+					<div class="col-lg-7 left-column">
+						<!-- 学生基本信息卡片 -->
+						<div class="info-card">
+							<div class="student-profile">
+								<!-- 左侧个人信息 -->
+								<div class="student-info-left">
+									<div class="section-title">基本信息</div>
+									<ul class="student-info-list">
+										<li>
+											<span class="info-label">学号</span>
+											<span class="info-value">202307180714</span>
+										</li>
+										<li>
+											<span class="info-label">年级</span>
+											<span class="info-value">2023</span>
+										</li>
+										<li>
+											<span class="info-label">学院</span>
+											<span class="info-value">信息工程学院</span>
+										</li>
+										<li>
+											<span class="info-label">专业</span>
+											<span class="info-value">计算机应用技术</span>
+										</li>
+										<li>
+											<span class="info-label">班级</span>
+											<span class="info-value">计算机23-1班</span>
+										</li>
+										<li>
+											<span class="info-label">学历</span>
+											<span class="info-value">本科</span>
+										</li>
+										<li>
+											<span class="info-label">学制</span>
+											<span class="info-value">四年制</span>
+										</li>
+										<li>
+											<span class="info-label">政治面貌</span>
+											<span class="info-value">中共党员</span>
+										</li>
+									</ul>
+								</div>
+								
+								<!-- 中间照片 -->
+								<div class="student-avatar-container">
+									<img src="../assets/images/avatars/Lan.jpg" class="student-avatar" alt="学生头像">
+									<div class="student-name">依力亚斯江 · 阿依力亚斯江</div>
+									<div class="student-id">19岁 | 维吾尔族 <i class="bi bi-gender-female text-danger"></i></div>
+								</div>
+								
+								<!-- 右侧辅导员和班主任信息 -->
+								<div class="student-info-right">
+									<div class="section-title">指导老师</div>
+									<div class="mb-3">
+										<div class="text-muted">辅导员</div>
+										<div class="fw-bold">徐丽华</div>
+										<div class="small text-muted">电话：13800138000</div>
+										<div class="small text-muted">邮箱：xlh@example.com</div>
+									</div>
+									<div>
+										<div class="text-muted">班主任</div>
+										<div class="fw-bold">----</div>
+										<div class="small text-muted">电话：----</div>
+										<div class="small text-muted">邮箱：----</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<!-- 组合信息模块 -->
+						<div class="info-group">
+							<!-- 左侧调宿和住宿信息 -->
+							<div class="info-group-left">
+								<!-- 调宿信息 -->
+								
+								
+								<!-- 住宿信息 -->
+								<div class="sub-card">
+									<div class="section-title">住宿信息</div>
+									<table class="dorm-info-table">
+										<tr>
+											<td width="100%">
+												<div class="d-flex align-items-center">
+													<i class="bi bi-house-door fs-4 text-primary me-2"></i>
+													<div>
+														<div>xxxx区xxxx栋xxxx室</div>
+														<div class="text-muted">3号床</div>
+													</div>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class="sub-card">
+									<div class="section-title">调宿信息</div>
+									<table class="dorm-change-table">
+										<thead>
+											<tr>
+												<th width="50%">原宿舍</th>
+												<th width="50%">现宿舍</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>----</td>
+												<td>----</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							
+							<!-- 右侧通知信息 -->
+							<div class="info-group-right">
+								<div class="sub-card" style="height: 100%;">
+									<div class="section-title">通知信息</div>
+									<div class="notification-item">
+										<div class="notification-icon">
+											<i class="bi bi-bell"></i>
+										</div>
+										<div class="notification-content">
+											<div class="notification-title">第二课堂学分预警通知，请及时处理</div>
+											<div class="notification-date">2024-03-14</div>
+										</div>
+									</div>
+									<div class="notification-item">
+										<div class="notification-icon">
+											<i class="bi bi-bell"></i>
+										</div>
+										<div class="notification-content">
+											<div class="notification-title">第二课堂学分预警通知，请及时处理</div>
+											<div class="notification-date">2024-03-14</div>
+										</div>
+									</div>
+									<div class="notification-item">
+										<div class="notification-icon">
+											<i class="bi bi-bell"></i>
+										</div>
+										<div class="notification-content">
+											<div class="notification-title">第二课堂学分预警通知，请及时处理</div>
+											<div class="notification-date">2024-03-14</div>
+										</div>
+									</div>
+									<div class="notification-item">
+										<div class="notification-icon">
+											<i class="bi bi-bell"></i>
+										</div>
+										<div class="notification-content">
+											<div class="notification-title">第二课堂学分预警通知，请及时处理</div>
+											<div class="notification-date">2024-03-14</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 右侧内容 -->
+					<div class="col-lg-5 right-column">
+						<!-- 数据卡片区域 -->
+						<div class="stats-container">
+							<div class="stat-card blue">
+								<div class="stat-content">
+									<div class="stat-title">学业成绩</div>
+									<div class="stat-value">89.22</div>
+									<div class="stat-subvalue">平均分</div>
+								</div>
+								<div class="stat-icon">
+									<i class="bi bi-mortarboard"></i>
+								</div>
+							</div>
+							<div class="stat-card green">
+								<div class="stat-content">
+									<div class="stat-title">已修学分</div>
+									<div class="stat-value">23</div>
+									<div class="stat-subvalue">总学分：120</div>
+								</div>
+								<div class="stat-icon">
+									<i class="bi bi-journal-check"></i>
+								</div>
+							</div>
+							<div class="stat-card purple stat-wide">
+								<div class="stat-content d-flex justify-content-around">
+									<div class="text-center">
+										<div class="stat-title">学业预警</div>
+										<div class="stat-value">0</div>
+									</div>
+									<div class="text-center">
+										<div class="stat-title">纪律预警</div>
+										<div class="stat-value">0</div>
+									</div>
+									<div class="text-center">
+										<div class="stat-title">心理预警</div>
+										<div class="stat-value">0</div>
+									</div>
+								</div>
+								<div class="stat-icon">
+									<i class="bi bi-shield-check"></i>
+								</div>
+							</div>
+							<div class="stat-card green">
+								<div class="stat-content">
+									<div class="stat-title">借阅情况</div>
+									<div class="stat-value">15</div>
+									<div class="stat-subvalue">当前借阅：2本</div>
+								</div>
+								<div class="stat-icon">
+									<i class="bi bi-book"></i>
+								</div>
+							</div>
+							<div class="stat-card orange">
+								<div class="stat-content">
+									<div class="stat-title">一卡通</div>
+									<div class="stat-value">1121<small>元</small></div>
+									<div class="stat-subvalue">本月消费：21次</div>
+								</div>
+								<div class="stat-icon">
+									<i class="bi bi-credit-card"></i>
+								</div>
+							</div>
+						</div>
+						
+						<!-- 第二课堂卡片 -->
+						<div class="info-card compact-card">
+							<div class="section-title">第二课堂</div>
+							<table class="activity-table">
+								<thead>
+									<tr>
+										<th>参加活动</th>
+										<th>活动时间</th>
+										<th>获得学分</th>
+									</tr>
+								</thead>
+								<tbody id="activityTableBody">
+									<tr>
+										<td>xxxxxxx活动</td>
+										<td>2020/09/01</td>
+										<td>2</td>
+									</tr>
+									<tr>
+										<td>xxxxxxx活动</td>
+										<td>2020/09/01</td>
+										<td>2</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						
+						<!-- 预警模块卡片 -->
+						<div class="info-card compact-card">
+							<div class="section-title">预警</div>
+							<div class="warning-chart-container">
+								<canvas id="warningChart"></canvas>
+							</div>
+						</div>
+						
+						<!-- 教育经历卡片 -->
+						<div class="info-card compact-card">
+							<div class="section-title">教育经历</div>
+							<table class="education-table">
+								<tbody>
+									<tr>
+										<td>黑龙江农业工程职业学院</td>
+										<td>计算机应用技术</td>
+										<td>大专</td>
+										<td>2020/09-2022/06</td>
+									</tr>
+									<tr>
+										<td>哈尔滨工业大学</td>
+										<td>计算机科学与技术</td>
+										<td>本科</td>
+										<td>2022/09-2025/06</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<footer class="pt-5 pb-3 footer  footer-dark bg-tertiary  bj  ">
+		<!-- bg-size--cover -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<div class="pr-lg-5">
+						<h1 class="heading h6 text-uppercase font-weight-700 mb-3"><a href="http://www.hngzy.edu.cn">
+								<img src="http://www.hngzy.edu.cn/images/foot-logo.png" width="100%"></a></h1>
+						<P><img src="../assets/images/backgrounds/xx.png"></P>
+					</div>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">新手入门</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">名词解释</a></li>
+						<li><a class="text-muted" href="#">使用手册（学生端）</a></li>
+						<li><a class="text-muted" href="#">操作文档（教师端）</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">服务支持</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">帮助中心</a></li>
+						<li><a class="text-muted" href="#">隐私政策</a></li>
+						<li><a class="text-muted" href="#">服务协议</a></li>
+						<li><a class="text-muted" href="#">知识产权</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">加入我们</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">社团</a></li>
+						<li><a class="text-muted" href="#">新媒体</a></li>
+						<li><a class="text-muted" href="#">志愿服务队</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">友情链接</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="https://hljswkj.jw.chaoxing.com/admin/login">教务系统</a></li>
+						<li><a class="text-muted" href="https://www.hljbys.org.cn/school/index?mark=hngzy">就业平台</a>
+						</li>
+						<li><a class="text-muted" href="#">VPN客户端</a></li>
+						<li><a class="text-muted" href="#">双创竞赛平台</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<div class="d-flex align-items-center">
+				<span class="">
+					Copyright &copy; 2025 <a href="http://www.hngzy.edu.cn/index.htm" class="footer-link"
+						target="_blank">黑龙江农业工程职业学院 · 版权所有</a> All Rights Reserved <a href="https://beian.miit.gov.cn/"
+						class="footer-link" target="_blank">黑ICP备05004682号-1</a>
+				</span>
+				<ul class="nav ml-lg-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="http://www.hngzy.edu.cn/" target="_blank"><i
+								class="fas fa-university"></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="http://weixin.qq.com/r/GkhocHPE6y6UrTcT9x0I" target="_blank"><i
+								class="fab fa-weixin"></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://im.qq.com/index/" target="_blank"><i
+								class="fab fa-qq"></i></a>
+					</li>
+					<!-- <li class="nav-item">
+							<a class="nav-link active" href="https://www.douyin.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+						</li> -->
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- Core -->
+	<script src="../assets/vendor/jquery/jquery.min.js"></script>
+	<script src="../assets/vendor/popper/popper.min.js"></script>
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+	<!-- FontAwesome 5 -->
+	<script src="../assets/vendor/fontawesome/js/fontawesome-all.min.js" defer></script>
+	<!-- Page plugins -->
+	<script src="../assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+	<script src="../assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+	<script src="../assets/vendor/input-mask/input-mask.min.js"></script>
+	<script src="../assets/vendor/nouislider/js/nouislider.min.js"></script>
+	<script src="../assets/vendor/textarea-autosize/textarea-autosize.min.js"></script>
+	<!-- Theme JS -->
+	<script src="../assets/js/theme.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<!-- 添加 Bootstrap Datepicker JS -->
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+	<script>
+		// 统一的命名空间
+		const DetailApp = {
+			// 初始化函数
+			init() {
+				this.initMenu();
+				this.initUpload();
+				this.initPhoto();
+				this.initExamForm();
+				this.bindEvents();
+			},
+
+			// 菜单初始化
+			initMenu() {
+				// 主菜单点击事件
+				$('.detail-menu-item').on('click', function(e) {
+					e.preventDefault();
+					const $this = $(this);
+					const category = $this.find('.detail-submenu-item:first').data('category') || 'all';
+					window.location.href = `detail.html?type=${$('.detail-tab.active').data('type')}&category=${category}`;
+				});
+
+				// 子菜单点击事件
+				$('.detail-submenu-item').on('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					const category = $(this).data('category');
+					window.location.href = `detail.html?type=${$('.detail-tab.active').data('type')}&category=${category}`;
+				});
+
+				this.initActiveMenu();
+			},
+
+			// 初始化激活菜单
+			initActiveMenu() {
+				const urlParams = new URLSearchParams(window.location.search);
+				const category = urlParams.get('category');
+				const type = urlParams.get('type') || 'theme';
+
+				$(`.detail-tab[data-type="${type}"]`).addClass('active').siblings().removeClass('active');
+
+				if (type === 'theme') {
+					$('#departmentMenu').hide();
+					$('#themeMenu').show();
+				} else {
+					$('#themeMenu').hide();
+					$('#departmentMenu').show();
+				}
+
+				if (category && category !== 'all') {
+					const $submenuItem = $(`.detail-submenu-item[data-category="${category}"]`);
+					if ($submenuItem.length) {
+						const $menuItem = $submenuItem.closest('.detail-menu-item');
+						$menuItem.addClass('active');
+						$menuItem.find('.detail-submenu').show();
+						$submenuItem.addClass('active');
+					}
+				}
+			},
+
+			// 文件上传初始化
+			initUpload() {
+				const $uploadArea = $('#uploadArea');
+				const $uploadInput = $('.upload-input');
+				const $uploadList = $('.upload-list');
+				const $uploadPreview = $('.upload-preview');
+				const $uploadDefault = $('.upload-default');
+
+				$uploadArea.on('dragover', function(e) {
+					e.preventDefault();
+					$(this).addClass('dragover');
+				}).on('dragleave drop', function(e) {
+					e.preventDefault();
+					$(this).removeClass('dragover');
+				});
+
+				$uploadInput.on('change', function(e) {
+					DetailApp.handleFiles(e.target.files);
+				});
+			},
+
+			// 处理文件上传
+			handleFiles(files) {
+				if (files.length === 0) return;
+
+				const $uploadList = $('.upload-list');
+				const $uploadPreview = $('.upload-preview');
+				const $uploadDefault = $('.upload-default');
+
+				$uploadDefault.hide();
+				$uploadPreview.show();
+
+				Array.from(files).forEach(file => {
+					const isValid = this.validateFile(file);
+					const status = isValid ? 'success' : 'error';
+					const statusText = isValid ? '准备上传' : '文件无效';
+
+					const $item = $(`
+						<li class="upload-item">
+							<i class="fas ${this.getFileIcon(file.name)} upload-item-icon"></i>
+							<span class="upload-item-name">${file.name}</span>
+							<span class="upload-item-size">${this.formatFileSize(file.size)}</span>
+							<span class="upload-item-status ${status}">${statusText}</span>
+							<div class="upload-item-actions">
+								<i class="fas fa-times" title="移除"></i>
+							</div>
+						</li>
+					`);
+
+					$uploadList.append($item);
+
+					$item.find('.fa-times').on('click', function() {
+						$item.remove();
+						if ($uploadList.children().length === 0) {
+							$uploadPreview.hide();
+							$uploadDefault.show();
+						}
+					});
+				});
+			},
+
+			// 文件验证
+			validateFile(file) {
+				const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+				const maxSize = 10 * 1024 * 1024; // 10MB
+				return allowedTypes.includes(file.type) && file.size <= maxSize;
+			},
+
+			// 获取文件图标
+			getFileIcon(filename) {
+				if (filename.match(/\.(jpg|jpeg|png)$/i)) return 'fa-file-image';
+				if (filename.match(/\.pdf$/i)) return 'fa-file-pdf';
+				return 'fa-file';
+			},
+
+			// 格式化文件大小
+			formatFileSize(bytes) {
+				if (bytes === 0) return '0 B';
+				const k = 1024;
+				const sizes = ['B', 'KB', 'MB', 'GB'];
+				const i = Math.floor(Math.log(bytes) / Math.log(k));
+				return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+			},
+
+			// 照片上传初始化
+			initPhoto() {
+				const photoFrame = document.getElementById('photoDropZone');
+				const photoInput = document.getElementById('photoInput');
+				const photoPreview = document.getElementById('photoPreview');
+
+				photoFrame.addEventListener('click', () => photoInput.click());
+
+				photoInput.addEventListener('change', e => {
+					this.handlePhotoUpload(e.target.files[0]);
+				});
+
+				photoFrame.addEventListener('dragover', function(e) {
+					e.preventDefault();
+					this.classList.add('dragover');
+				});
+
+				photoFrame.addEventListener('dragleave', function(e) {
+					e.preventDefault();
+					this.classList.remove('dragover');
+				});
+
+				photoFrame.addEventListener('drop', function(e) {
+					e.preventDefault();
+					this.classList.remove('dragover');
+					const file = e.dataTransfer.files[0];
+					if (file && file.type.startsWith('image/')) {
+						this.handlePhotoUpload(file);
+					} else {
+						this.showAlert('请上传图片文件', 'warning');
+					}
+				}.bind(this));
+			},
+
+			// 处理照片上传
+			handlePhotoUpload(file) {
+				if (file && file.type.startsWith('image/')) {
+					const reader = new FileReader();
+					reader.onload = e => {
+						document.getElementById('photoPreview').src = e.target.result;
+					};
+					reader.readAsDataURL(file);
+				} else {
+					this.showAlert('请上传图片文件', 'warning');
+				}
+			},
+
+			// 考试表单初始化
+			initExamForm() {
+				// 考试数据配置
+				this.examData = {
+					english: {
+						subjects: [
+							{ name: '大学英语四级', levels: ['CET4'] },
+							{ name: '大学英语六级', levels: ['CET6'] },
+							{ name: '专业英语等级考试', levels: ['A级', 'B级', 'C级'] }
+						]
+					},
+					'1+x': {
+						subjects: [
+							{ name: 'Web前端开发', levels: ['初级', '中级', '高级'] },
+							{ name: '大数据应用开发（python）', levels: ['初级', '中级', '高级'] }
+						]
+					},
+					huawei: {
+						subjects: [
+							{ name: '路由交换', levels: ['HCIA', 'HCIP', 'HCIE'] },
+							{ name: '云计算', levels: ['HCIA', 'HCIP', 'HCIE'] },
+							{ name: '人工智能', levels: ['HCIA', 'HCIP', 'HCIE'] }
+						]
+					},
+					aliyun: {
+						subjects: [
+							{ name: '云计算', levels: ['ACA', 'ACP', 'ACE'] },
+							{ name: '大数据', levels: ['ACA', 'ACP'] },
+							{ name: '物联网', levels: ['ACA', 'ACP'] }
+						]
+					}
+				};
+
+				// 初始化日期选择器
+				$('#examTime').datepicker({
+					language: 'zh-CN',
+					format: 'yyyy-mm-dd',
+					autoclose: true,
+					todayHighlight: true,
+					clearBtn: true,
+					container: 'body',
+					orientation: 'bottom auto'
+				});
+
+				this.initFormValidation();
+			},
+
+			// 绑定事件
+			bindEvents() {
+				$('#openDatePicker').on('click', () => {
+					$('#examTime').datepicker('show');
+				});
+
+				$('#examCategory').on('change', () => {
+					this.handleCategoryChange();
+				});
+
+				$('#examSubject').on('change', () => {
+					this.handleSubjectChange();
+				});
+			},
+
+			// 处理考试类别变化
+			handleCategoryChange() {
+				const selectedCategory = $('#examCategory').val();
+				const $examSubject = $('#examSubject');
+				const $examLevel = $('#examLevel');
+
+				$examSubject.prop('disabled', !selectedCategory).val('');
+				$examLevel.prop('disabled', true).val('');
+				$('#examTime').val('');
+
+				if (selectedCategory) {
+					$('#subjectLoadingSpinner').removeClass('d-none');
+
+					setTimeout(() => {
+						const subjects = this.examData[selectedCategory].subjects;
+						$examSubject.html('<option value="">请选择考试等级科目</option>' +
+							subjects.map(subject =>
+								`<option value="${subject.name}">${subject.name}</option>`
+							).join('')
+						);
+
+						$('#subjectLoadingSpinner').addClass('d-none');
+						this.showAlert('考试科目已更新');
+					}, 500);
+				}
+			},
+
+			// 处理考试科目变化
+			handleSubjectChange() {
+				const selectedCategory = $('#examCategory').val();
+				const selectedSubject = $('#examSubject').val();
+				const $examLevel = $('#examLevel');
+
+				$examLevel.prop('disabled', !selectedSubject).val('');
+
+				if (selectedSubject) {
+					$('#levelLoadingSpinner').removeClass('d-none');
+
+					setTimeout(() => {
+						const subject = this.examData[selectedCategory].subjects
+							.find(s => s.name === selectedSubject);
+
+						$examLevel.html('<option value="">请选择考试等级</option>' +
+							subject.levels.map(level =>
+								`<option value="${level}">${level}</option>`
+							).join('')
+						);
+
+						$('#levelLoadingSpinner').addClass('d-none');
+						this.showAlert('考试等级已更新');
+					}, 500);
+				}
+			},
+
+			// 初始化表单验证
+			initFormValidation() {
+				const forms = document.getElementsByClassName('needs-validation');
+				Array.from(forms).forEach(form => {
+					form.addEventListener('submit', event => {
+						if (!form.checkValidity()) {
+							event.preventDefault();
+							event.stopPropagation();
+							this.showAlert('请填写所有必填项', 'danger');
+						} else {
+							this.showAlert('提交成功', 'success');
+						}
+						form.classList.add('was-validated');
+					}, false);
+				});
+			},
+
+			// 显示提示信息
+			showAlert(message, type = 'success') {
+				const alert = $(`
+					<div class="alert alert-${type} alert-dismissible fade show alert-float" role="alert">
+						${message}
+						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				`);
+				$('body').append(alert);
+				setTimeout(() => alert.alert('close'), 3000);
+			}
+		};
+
+		// DOM加载完成后初始化应用
+		$(document).ready(() => {
+			DetailApp.init();
+		});
+	</script>
+	 <!-- jQuery -->
+	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	 <!-- Bootstrap 5 JS Bundle with Popper -->
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	 
+	 <!-- 自定义 JavaScript -->
+	 <script>
+		 $(document).ready(function() {
+			 // 初始化预警图表
+			 const warningChartCtx = document.getElementById('warningChart').getContext('2d');
+			 const warningChart = new Chart(warningChartCtx, {
+				 type: 'bar',
+				 data: {
+					 labels: ['学业预警', '考勤预警', '入党积极分子', '奖学金', '心理预警', '纪律预警', '退学预警', '德育学分', '综合学分'],
+					 datasets: [{
+						 label: '预警数量',
+						 data: [3, 4, 5, 2, 3, 1, 2, 4, 3],
+						 backgroundColor: '#4cd3a9',
+						 borderWidth: 0,
+						 borderRadius: 5
+					 }]
+				 },
+				 options: {
+					 responsive: true,
+					 maintainAspectRatio: false,
+					 plugins: {
+						 legend: {
+							 display: false
+						 }
+					 },
+					 scales: {
+						 y: {
+							 beginAtZero: true,
+							 max: 6,
+							 ticks: {
+								 stepSize: 1
+							 }
+						 },
+						 x: {
+							 grid: {
+								 display: false
+							 },
+							 ticks: {
+								 font: {
+									 size: 9
+								 }
+							 }
+						 }
+					 }
+				 }
+			 });
+			 
+			 // 卡片悬停效果
+			 $('.stat-card').hover(
+				 function() {
+					 $(this).css('transform', 'translateY(-5px)');
+					 $(this).css('box-shadow', '0 10px 20px rgba(0, 0, 0, 0.1)');
+				 },
+				 function() {
+					 $(this).css('transform', 'translateY(0)');
+					 $(this).css('box-shadow', '0 2px 10px rgba(0, 0, 0, 0.05)');
+				 }
+			 );
+			 
+			 // 学生信息卡片悬停效果
+			 $('.student-info-left, .student-info-right').hover(
+				 function() {
+					 $(this).css('background-color', 'rgba(255, 255, 255, 1)');
+				 },
+				 function() {
+					 $(this).css('background-color', 'rgba(255, 255, 255, 0.9)');
+				 }
+			 );
+			 
+			 // 模拟数据加载动画
+			 $('.stat-value').each(function() {
+				 const $this = $(this);
+				 const finalValue = parseInt($this.text());
+				 $this.text('0');
+				 
+				 $({ countNum: 0 }).animate({ countNum: finalValue }, {
+					 duration: 1000,
+					 easing: 'swing',
+					 step: function() {
+						 $this.text(Math.floor(this.countNum));
+					 },
+					 complete: function() {
+						 $this.text(finalValue);
+					 }
+				 });
+			 });
+		 });
+	 </script>
+</body>
+
+</html>

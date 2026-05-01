@@ -1,0 +1,75 @@
+.logo {
+	transform: translateY(-60px);
+	filter: drop-shadow(#333333 0 60px)
+}
+
+.fh {
+	padding-left: 0px;
+}
+
+.navbar {
+	padding: 15px 0;
+	transition: all 0.3s ease;
+	background: linear-gradient(to bottom, rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.5), rgba(0, 123, 255, 0));
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 0 20px;
+	position: relative;
+}
+
+.navbar-dark .navbar-nav .nav-link::after {
+	content: '';
+	position: absolute;
+	bottom: -5px;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background: #fff;
+	transition: all 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover::after {
+	width: 100%;
+	left: 0;
+}
+
+.banner-carousel {
+	height: 400px;
+	overflow: hidden;
+}
+
+/* 密码验证提示样式 */
+.password-strength,
+.password-match {
+	font-size: 0.85rem;
+	padding: 5px 10px;
+	margin-top: 5px;
+	border-radius: 4px;
+	display: none;
+}
+
+.signup-error-text {
+	color: #ff4136;
+	background-color: rgba(255, 65, 54, 0.1);
+	border-left: 3px solid #ff4136;
+}
+
+.signup-success-text {
+	color: #2ecc40;
+	background-color: rgba(46, 204, 64, 0.1);
+	border-left: 3px solid #2ecc40;
+}
+
+.signup-input-error {
+	border-color: #ff4136 !important;
+	box-shadow: 0 0 0 0.2rem rgba(255, 65, 54, 0.25) !important;
+}
+
+.signup-input-success {
+	border-color: #2ecc40 !important;
+	box-shadow: 0 0 0 0.2rem rgba(46, 204, 64, 0.25) !important;
+}

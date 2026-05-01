@@ -1,0 +1,66 @@
+/* 注册表单专用样式 */
+.signup-input-error {
+    border-color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+.signup-input-success {
+    border-color: #28a745 !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}
+
+/* 修改提示文本的样式 */
+.signup-error-text,
+.signup-success-text {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    transition: all 0.3s ease;
+    opacity: 0;  /* 默认隐藏 */
+}
+
+.signup-success-text {
+    color: #28a745;
+}
+
+.password-strength,
+.password-match {
+    min-height: 20px;
+    margin-top: 5px;
+    display: none;  /* 默认隐藏 */
+}
+
+/* 添加淡入淡出动画 */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.password-strength.show,
+.password-match.show {
+    animation: fadeInOut 2s ease-in-out;
+}
+
+/* 禁用状态的提交按钮 */
+#signup_submit:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* 输入框动画效果 */
+.form-control {
+    transition: all 0.3s ease;
+}
+
+/* 避免与其他样式冲突 */
+.form-primary .form-control:focus {
+    border-color: inherit;
+    box-shadow: none;
+}
+
+.form-primary .form-control.signup-input-error:focus,
+.form-primary .form-control.signup-input-success:focus {
+    border-color: inherit;
+} 

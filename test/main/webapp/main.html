@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description"
+			content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at  the highest level of quality.                             ">
+		<meta name="author" content="Webpixels">
+		<title>"一站式"学生社区综合服务平台（试运行）</title>
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+		<!-- Theme CSS -->
+		<link type="text/css" href="assets/css/theme.css" rel="stylesheet">
+		<!-- Demo CSS - No need to use these in your project -->
+		<link type="text/css" href="assets/css/demo.css" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/login.css">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+		<!-- Animate.css -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+		<style>
+			/* 确保链接可点击 */
+			a {
+				position: relative; /* 确保链接在文档流中 */
+				z-index: 1; /* 提高链接的 z-index */
+			}
+
+			/* 确保没有其他元素覆盖链接 */
+			.hover-effect {
+				z-index: 0; /* 确保 hover 效果的元素在链接下方 */
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<nav class="navbar navbar-expand-lg navbar-transparent navbar-dark py-4">
+				<div class="container">
+					<a class="navbar-brand" href="#"><img src="../webapp/assets/images/backgrounds/logo.png" width="80%">
+						<!-- <strong>"一站式"学生服务信息平台</strong>（试运行） --></a>
+					<button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main"
+						aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+						<ul class="navbar-nav ml-auto align-items-lg-center">
+							<li class="nav-item">
+								<a class="nav-link" href="index.jsp?choice=1">学院主页</a>
+							</li>
+							<li class="nav-item active">
+								<a class="nav-link" href="#">系统应用</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="../webapp/pages/detail.html">流程服务</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="index.jsp?choice=4">数据中心</a>
+							</li>
+							<li  class="nav-item">
+								<div class="dropdown">
+									<button class="btn btn-primary btn-icon-only rounded-circle" type="button" id="dropdown_user_account" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<!-- <span class="btn-inner--icon">
+											<i class="fas fa-user"></i>
+										</span>  -->
+										<img src="../webapp/assets/images/avatars/user.jpg" class="avatar avatar-lg mr-3" style="width: 50px; height: 50px;">
+									</button>
+									<div class="dropdown-menu" aria-labelledby="dropdown_user_account" >
+										<h6 class="dropdown-header">我是学号</h6>
+										<a class="dropdown-item" href="#">
+											<span class="float-right badge badge-primary">4</span>
+											<i class="fas fa-envelope text-primary"></i>系统消息
+										</a>
+										<a class="dropdown-item" href="#">
+											<i class="fas fa-cog text-primary"></i>个人资料
+										</a>
+										<div class="dropdown-divider" role="presentation"></div>
+										<a class="dropdown-item" href="#">
+											<i class="fas fa-sign-out-alt text-primary"></i>退出登录
+										</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+						
+					</div>
+				</div>
+			</nav>
+			<!-- 轮播图 -->
+			<div class="banner-carousel">
+				<div id="carouselExample" class="carousel slide" data-ride="carousel">
+					<!-- 添加轮播指示器 -->
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselExample" data-slide-to="1"></li>
+					</ol>
+
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="./assets/images/brand/banner1.jpg" alt="Banner 1">
+							<!-- 修改文字内容结构 -->
+							<div class="text-overlay">
+								<div class="text-center">
+									<img src="assets/images/brand/icon.png" style="width: 200px;"
+										class="img-fluid animated" data-animation-in="jackInTheBox"
+										data-animation-delay="1000">
+									<h2 class="heading display-4 font-weight-400 text-white mt-5 animated"
+										data-animation-in="fadeInUp" data-animation-delay="2000">
+										<span class="font-weight-600">“一站式”学生社区综合服务平台</span>V0.5（试运行）
+									</h2>
+									<p class="lead text-white mt-3 lh-180 c-white animated" data-animation-in="fadeInUp" data-animation-delay="2500">
+										One-Stop Student Community Comprehensive Service Platform V0.5 (Pilot Run)
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item">
+							<img src="http://www.hngzy.edu.cn/images/banner.png" alt="Banner 2">
+							<!-- 修改文字内容结构 -->
+							<div class="text-overlay">
+								<div class="text-center">
+									<img src="assets/images/brand/icon.png" style="width: 200px;"
+										class="img-fluid animated" data-animation-in="jackInTheBox"
+										data-animation-delay="1000">
+									<h2 class="heading display-4 font-weight-400 text-white mt-5 animated"
+										data-animation-in="fadeInUp" data-animation-delay="2000">
+										<span class="font-weight-600">“一站式”学生社区综合服务平台</span>V0.5（试运行）
+									</h2>
+									<p class="lead text-white mt-3 lh-180 c-white animated" data-animation-in="fadeInUp" data-animation-delay="2500">
+										One-Stop Student Community Comprehensive Service Platform V0.5 (Pilot Run)
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- 轮播图结束 -->
+		<main>
+			<div class="container">
+				<div class="mainWidth clearfix section_1 jcyy">
+					<h5>
+						<img src="assets/images/icons/yyicon.png" alt="应用系统" class="title-icon">
+						<span class="gradient-text">应用系统</span>
+					</h5>
+					<div class="row row-cols-8 g-3">
+						<!-- 第一行 -->
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/education.png" alt="教务系统" class="feature-icon">
+								<a href="https://www.baidu.com/">教务系统</a>
+							</div>
+						</div>
+						
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/student.png" alt="学工系统" class="feature-icon">
+								<a href="https://www.baidu.com/">学工系统</a>
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/smart1.png" alt="智慧迎新系统" class="feature-icon">
+								<a href="#">智慧迎新系统</a>
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/graduation.png" alt="离校申请" class="feature-icon">
+								<a href="#">离校申请</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/resume.png" alt="AI智能简历" class="feature-icon">
+								<a href="#">AI智能简历</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								
+
+								<img src="assets/images/icons/sign.png" alt="网上签约" class="feature-icon">
+								<a href="#">网上签约</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+							
+								<img src="assets/images/icons/graduation_check.png" alt="毕业生去向登记" class="feature-icon">
+								<a href="#">毕业去向登记</a>
+							</div>
+						</div>
+
+
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/library.png" alt="图书馆系统" class="feature-icon">
+								<a href="#">图书馆系统</a>
+							</div>
+						</div>
+
+
+
+						<!-- 第二行 -->
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/online.png" alt="在线教学平台" class="feature-icon">
+								<a href="#">在线教学平台</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/digital.png" alt="数字资源中心" class="feature-icon">
+								<a href="#">数字资源中心</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/smart.png" alt="智慧教室平台" class="feature-icon">
+								<a href="#">智慧教室平台</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								
+
+								<img src="assets/images/icons/career.png" alt="职业生涯咨询预约" class="feature-icon">
+								<a href="#">就业咨询预约</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/recruitment.png" alt="校园招聘查询" class="feature-icon">
+								<a href="#">校园招聘查询</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/email.png" alt="教育邮箱" class="feature-icon">
+								<a href="#">教育邮箱申请</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/dormitory.png" alt="上网认证" class="feature-icon">
+								<a href="#">北区上网认证</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/teaching.png" alt="教学区上网认证" class="feature-icon">
+								<a href="#">南区上网认证</a>
+							</div>
+						</div>
+
+						<!-- 第三行 -->
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/vpn.png" alt="Webvpn系统" class="feature-icon">
+								<a href="#">Webvpn系统</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/research.png" alt="内网公开课" class="feature-icon">
+								<a href="https://www.baidu.com/">内网公开课</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/service.png" alt="一网通办" class="feature-icon">
+								<a href="https://www.baidu.com/">一网通办</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/health.png" alt="体质健康管理系统" class="feature-icon">
+								<a href="#">体质健康管理系统</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/safety.png" alt="安全教育" class="feature-icon">
+								<a href="#">安全教育</a>
+
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/quality.png" alt="教学质量管理" class="feature-icon">
+								<a href="#">教学质量管理</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/venue.png" alt="虚拟校园" class="feature-icon">
+								<a href="#">校园</a>
+							</div>
+						</div>
+						<div class="col">
+							<div class="list-group-item text-center">
+								<img src="assets/images/icons/software.png" alt="正版软件服务平台" class="feature-icon">
+								<a href="#">教学软件</a>
+							</div>
+						</div>
+						<div>
+							<!-- 占位符  一个比较笨但是没有bug的方法 -->
+						</div>
+					</div>
+				</div>
+				<div class="gradient-divider"></div>
+				<!-- 第二部分 -->
+
+				<div class="mainWidth section_2 dlyy">
+					<h5>
+						<img src="assets/images/icons/yyicon.png" alt="应用系统" class="title-icon">
+						<span class="gradient-text">流程服务 <span class="small-text"><b>(按主题)</b></span></span>
+						<a href="../webapp/pages/detail.html" class="more-link">更多事项 ></a>
+					</h5>
+					<div class="service-list">
+						<div class="service-item">
+							<li class="service-content">
+								<img src="assets/images/icons/teaching-service.png" alt="教学服务" class="service-icon">
+								<div class="service-text">
+									<a href="../webapp/pages/detail.html?type=theme&category=teaching">教学服务</a>
+									<p>认证考试报名申请等3项 ></p>
+								</div>
+							</li>
+						</div>
+						<div class="service-item">
+							<li class="service-content">
+								<img src="assets/images/icons/life-service.png" alt="生活服务" class="service-icon">
+								<div class="service-text">
+									<a href="../webapp/pages/detail.html?type=theme&category=life">生活服务</a>
+									<p>外校人员入校申请等3项 ></p>
+								</div>
+							</li>
+						</div>
+						<div class="service-item">
+							<li class="service-content">
+								<img src="assets/images/icons/scholarship.png" alt="奖助贷补" class="service-icon">
+								<div class="service-text">
+									<a href="../webapp/pages/detail.html?type=theme&category=education">育人服务</a>
+									<p>志愿服务申请等7项 ></p>
+								</div>
+							</li>
+						</div>
+						<div class="service-item">
+							<li class="service-content">
+								<img src="assets/images/icons/other-service.png" alt="其他服务" class="service-icon">
+								<div class="service-text">
+									<a href="../webapp/pages/detail.html?type=theme&category=career">发展服务</a>
+									<p>大学生创业等7项 ></p>
+								</div>
+							</li>
+						</div>
+					</div>
+				</div>
+				<div class="gradient-divider"></div>
+				<!-- 第三部分 -->
+				<div class="mainWidth section_2 dlyy">
+					<h5>
+						<img src="assets/images/icons/yyicon.png" alt="应用系统" class="title-icon">
+						<span class="gradient-text">流程服务 <span class="small-text"><b>(按部门)</b></span></span>
+						<a href="#" class="more-link">更多事项 ></a>
+					</h5>
+					<div class="service-list">
+						<div class="service-item">
+							<li class="service-content">
+								<img src="assets/images/icons/student-work.png" alt="学生工作部" class="service-icon">
+								<div class="service-text">
+									<a href="../webapp/pages/detail.html?type=department&dept=学生工作部">学生工作部</a>
+									<p>节假日/荣誉称号 ></p>
+								</div>
+							</li>
+						</div>
+						<div class="service-item">
+							<li class="service-content">
+								<img src="assets/images/icons/career-center.png" alt="招生就业处" class="service-icon">
+								<div class="service-text">
+									<a href="../webapp/pages/detail.html?type=department&dept=招生就业处">招生就业处</a>
+									<p>就业、创业咨询 ></p>
+								</div>
+							</li>
+						</div>
+						<div class="service-item">
+							<li class="service-content">
+								<img src="assets/images/icons/sports.png" alt="教务处" class="service-icon">
+								<div class="service-text">
+									<a href="../webapp/pages/detail.html?type=department&dept=教务处">教务处</a>
+									<p>课程免试申请 ></p>
+								</div>
+							</li>
+						</div>
+						<div class="service-item">
+							<li class="service-content">
+								<img src="assets/images/icons/security.png" alt="总务处" class="service-icon">
+								<div class="service-text">
+									<a href="../webapp/pages/detail.html?type=department&dept=总务处">总务处</a>
+									<p>大型活动申请 ></p>
+								</div>
+							</li>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		
+		<footer class="pt-5 pb-3 footer  footer-dark bg-tertiary  bj  ">
+			<!-- bg-size--cover -->
+			<div class="container">
+				<div class="row">
+					<div class="col-12 col-md-4">
+						<div class="pr-lg-5">
+							<h1 class="heading h6 text-uppercase font-weight-700 mb-3"><a
+									href="http://www.hngzy.edu.cn">
+									<img src="http://www.hngzy.edu.cn/images/foot-logo.png" width="100%"></a></h1>
+							<P><img src="assets/images/backgrounds/xx.png"></P>
+						</div>
+					</div>
+					<div class="col-6 col-md">
+						<h5 class="heading h6 text-uppercase font-weight-700 mb-3">新手入门</h5>
+						<ul class="list-unstyled text-small">
+							<li><a class="text-muted" href="#">名词解释</a></li>
+							<li><a class="text-muted" href="#">使用手册（学生端）</a></li>
+							<li><a class="text-muted" href="#">操作文档（教师端）</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-md">
+						<h5 class="heading h6 text-uppercase font-weight-700 mb-3">服务支持</h5>
+						<ul class="list-unstyled text-small">
+							<li><a class="text-muted" href="#">帮助中心</a></li>
+							<li><a class="text-muted" href="#">隐私政策</a></li>
+							<li><a class="text-muted" href="#">服务协议</a></li>
+							<li><a class="text-muted" href="#">知识产权</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-md">
+						<h5 class="heading h6 text-uppercase font-weight-700 mb-3">加入我们</h5>
+						<ul class="list-unstyled text-small">
+							<li><a class="text-muted" href="#">社团</a></li>
+							<li><a class="text-muted" href="#">新媒体</a></li>
+							<li><a class="text-muted" href="#">志愿服务队</a></li>
+						</ul>
+					</div>
+					<div class="col-6 col-md">
+						<h5 class="heading h6 text-uppercase font-weight-700 mb-3">友情链接</h5>
+						<ul class="list-unstyled text-small">
+							<li><a class="text-muted" href="https://hljswkj.jw.chaoxing.com/admin/login">教务系统</a></li>
+							<li><a class="text-muted" href="https://www.hljbys.org.cn/school/index?mark=hngzy">就业平台</a>
+							</li>
+							<li><a class="text-muted" href="#">VPN客户端</a></li>
+							<li><a class="text-muted" href="#">双创竞赛平台</a></li>
+						</ul>
+					</div>
+				</div>
+				<hr>
+				<div class="d-flex align-items-center">
+					<span class="">
+						Copyright &copy; 2025 <a href="http://www.hngzy.edu.cn/index.htm" class="footer-link"
+							target="_blank">黑龙江农业工程职业学院 · 版权所有</a> All Rights Reserved <a
+							href="https://beian.miit.gov.cn/" class="footer-link" target="_blank">黑ICP备05004682号-1</a>
+					</span>
+					<ul class="nav ml-lg-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="http://www.hngzy.edu.cn/" target="_blank"><i
+									class="fas fa-university"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="http://weixin.qq.com/r/GkhocHPE6y6UrTcT9x0I" target="_blank"><i
+									class="fab fa-weixin"></i></a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="https://im.qq.com/index/" target="_blank"><i
+									class="fab fa-qq"></i></a>
+						</li>
+						<!-- <li class="nav-item">
+							<a class="nav-link active" href="https://www.douyin.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+		</footer>
+		<!-- Core -->
+		<script src="./assets/vendor/jquery/jquery.min.js"></script>
+		<script src="./assets/vendor/popper/popper.min.js"></script>
+		<script src="./assets/js/bootstrap/bootstrap.min.js"></script>
+		<!-- FontAwesome 5 -->
+		<script src="./assets/vendor/fontawesome/js/fontawesome-all.min.js" defer></script>
+		<!-- Page plugins -->
+		<script src="./assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+		<script src="./assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+		<script src="./assets/vendor/input-mask/input-mask.min.js"></script>
+		<script src="./assets/vendor/nouislider/js/nouislider.min.js"></script>
+		<script src="./assets/vendor/textarea-autosize/textarea-autosize.min.js"></script>
+		<!-- Theme JS -->
+		<script src="./assets/js/theme.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#zzjg-menu').click(function(e) {
+					e.preventDefault();
+					$(this).toggleClass('active');
+					$('#zzjg-submenu').slideToggle(300);
+				});
+
+				// 如果URL中包含zzjg，自动展开子菜单
+				if (window.location.href.indexOf('zzjg') > -1) {
+					$('#zzjg-menu').addClass('active');
+					$('#zzjg-submenu').show();
+				}
+
+				// 确保没有阻止默认行为的代码
+				$('a').on('click', function(e) {
+					// 这里可以添加调试信息
+					console.log('Link clicked:', $(this).attr('href'));
+				});
+			});
+		</script>
+		<!-- 自定义动画效果 -->
+		<script>
+			$(document).ready(function() {
+				// 初始化动画
+				function initializeAnimations() {
+					// 标题动画
+					$('.section_1 h5, .section_2 h5').each(function(index) {
+						$(this).addClass('animate__animated animate__fadeInDown')
+							.css('animation-delay', `${index * 200}ms`);
+					});
+
+					// 应用系统图标动画
+					$('.list-group-item').each(function(index) {
+						$(this).addClass('animate__animated animate__zoomIn')
+							.css('animation-delay', `${index * 50}ms`);
+					});
+
+					// 服务项目动画
+					$('.service-item').each(function(index) {
+						$(this).addClass('animate__animated animate__fadeInUp')
+							.css('animation-delay', `${index * 100}ms`);
+					});
+				}
+
+				// 滚动动画
+				function handleScrollAnimations() {
+					$('.section_1, .section_2').each(function() {
+						const elementTop = $(this).offset().top;
+						const elementBottom = elementTop + $(this).outerHeight();
+						const viewportTop = $(window).scrollTop();
+						const viewportBottom = viewportTop + $(window).height();
+
+						if (elementBottom > viewportTop && elementTop < viewportBottom) {
+							if (!$(this).hasClass('animated')) {
+								$(this).addClass('animated');
+								$(this).find('.list-group-item, .service-item').each(function(index) {
+									$(this).addClass('animate__animated animate__fadeInUp')
+										.css('animation-delay', `${index * 100}ms`);
+								});
+							}
+						}
+					});
+				}
+
+				// 悬停效果增强
+				function enhanceHoverEffects() {
+					// 应用系统卡片悬停效果
+					$('.list-group-item').hover(
+						function() {
+							$(this).addClass('hover-effect')
+								.find('.feature-icon')
+								.addClass('animate__animated animate__rubberBand');
+						},
+						function() {
+							$(this).removeClass('hover-effect')
+								.find('.feature-icon')
+								.removeClass('animate__animated animate__rubberBand');
+						}
+					);
+
+					// 服务项目悬停效果
+					$('.service-content').hover(
+						function() {
+							$(this).addClass('hover-effect')
+								.find('.service-icon')
+								.addClass('animate__animated animate__heartBeat');
+							$(this).find('.service-text a')
+								.css('transform', 'translateX(5px)');
+						},
+						function() {
+							$(this).removeClass('hover-effect')
+								.find('.service-icon')
+								.removeClass('animate__animated animate__heartBeat');
+							$(this).find('.service-text a')
+								.css('transform', 'translateX(0)');
+						}
+					);
+				}
+
+				// 点击波纹效果
+				function addRippleEffect() {
+					$('.list-group-item, .service-content').on('click', function(e) {
+						const ripple = $('<span class="ripple"></span>');
+						const x = e.pageX - $(this).offset().left;
+						const y = e.pageY - $(this).offset().top;
+						
+						ripple.css({
+							left: x,
+							top: y
+						}).appendTo($(this));
+
+						setTimeout(() => ripple.remove(), 1000);
+					});
+				}
+
+				// 平滑滚动效果
+				function smoothScroll() {
+					$('a[href^="#"]').on('click', function(e) {
+						e.preventDefault();
+						const target = $(this.hash);
+						if (target.length) {
+							$('html, body').animate({
+								scrollTop: target.offset().top - 100
+							}, 800, 'easeInOutExpo');
+						}
+					});
+				}
+
+				// 初始化所有效果
+				function initializeAll() {
+					initializeAnimations();
+					enhanceHoverEffects();
+					addRippleEffect();
+					smoothScroll();
+					
+					// 监听滚动事件
+					$(window).on('scroll', handleScrollAnimations);
+					
+					// 初始检查滚动动画
+					handleScrollAnimations();
+				}
+
+				// 页面加载完成后执行初始化
+				initializeAll();
+
+				// 添加响应式处理
+				$(window).on('resize', function() {
+					handleScrollAnimations();
+				});
+			});
+		</script>
+		<!-- 添加新的CSS样式 -->
+		<style>
+		.hover-effect {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 15px rgba(0,123,255,0.2);
+		}
+
+		.ripple {
+			position: absolute;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.7);
+			transform: scale(0);
+			animation: ripple-animation 0.8s linear;
+			pointer-events: none;
+		}
+
+		@keyframes ripple-animation {
+			to {
+				transform: scale(4);
+				opacity: 0;
+			}
+		}
+
+		.animated {
+			opacity: 1 !important;
+			transform: translateY(0) !important;
+		}
+
+		.section_1, .section_2 {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: all 0.6s ease-out;
+		}
+
+		.list-group-item, .service-item {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: all 0.3s ease-out;
+		}
+
+		.gradient-text {
+			background: linear-gradient(45deg, #0066cc, #0099ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			position: relative;
+			display: inline-block;
+		}
+
+		.service-content {
+			overflow: hidden;
+			position: relative;
+		}
+
+		.service-text a {
+			transition: transform 0.3s ease;
+		}
+
+		/* 添加标题相关样式 */
+		.section_1 h5, .section_2 h5 {
+			display: flex;
+			align-items: center;
+			margin-bottom: 25px;
+			padding-bottom: 15px;
+			border-bottom: 2px solid #f0f0f0;
+			position: relative;
+		}
+
+		.title-icon {
+			width: 24px;
+			height: 24px;
+			margin-right: 10px;
+			animation: bounce 2s infinite;
+		}
+
+		.gradient-text {
+			font-size: 20px;
+			font-weight: 600;
+			background: linear-gradient(45deg, #0066cc, #0099ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			position: relative;
+			display: inline-block;
+		}
+
+		.small-text {
+			font-size: 16px;
+			opacity: 0.8;
+			margin-left: 5px;
+		}
+
+		.more-link {
+			margin-left: auto;
+			color: #666;
+			font-size: 14px;
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+
+		.more-link:hover {
+			color: #0066cc;
+			transform: translateX(5px);
+		}
+
+		@keyframes bounce {
+			0%, 100% {
+				transform: translateY(0);
+			}
+			50% {
+				transform: translateY(-3px);
+			}
+		}
+
+		/* 标题动画效果 */
+		.section_1 h5, .section_2 h5 {
+			opacity: 1;  /* 确保标题可见 */
+			transform: translateY(0);  /* 重置transform */
+		}
+
+		.section_1 h5.animate__fadeInDown,
+		.section_2 h5.animate__fadeInDown {
+			animation-duration: 1s !important;
+		}
+		</style>
+	</body>
+</html>

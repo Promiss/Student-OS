@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description"
+		content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at  the highest level of quality.                             ">
+	<meta name="author" content="Webpixels">
+	<title>申请详情 - "一站式"学生社区综合服务平台</title>
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+	<!-- Theme CSS -->
+	<link type="text/css" href="../assets/css/theme.css" rel="stylesheet">
+	<!-- Demo CSS - No need to use these in your project -->
+	<link type="text/css" href="../assets/css/demo.css" rel="stylesheet">
+	<link rel="stylesheet" href="../assets/css/login.css">
+	<link rel="stylesheet" href="../assets/css/detail.css">
+	<link type="text/css" href="../assets/css/detail_get.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css">
+	<!-- 添加 Bootstrap Datepicker CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+	<style>
+		.section-title {
+			color: #2c3e50;
+			font-weight: 600;
+			margin-bottom: 1.5rem;
+			padding-bottom: 0.5rem;
+			border-bottom: 2px solid #e9ecef;
+		}
+
+		.form-section {
+			background: #ffffff;
+			padding: 25px;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+			margin-bottom: 20px;
+		}
+
+		.form-label {
+			color: #495057;
+			font-weight: 500;
+			margin-bottom: 0.5rem;
+		}
+
+		.required-star {
+			color: #dc3545;
+			font-style: normal;
+			margin-left: 2px;
+		}
+
+		.custom-input {
+			border: 1px solid #ced4da;
+			border-radius: 4px;
+			padding: 0.5rem 0.75rem;
+			background-color: #f8f9fa;
+			transition: all 0.3s ease;
+		}
+
+		.custom-input:focus {
+			border-color: #80bdff;
+			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+		}
+
+		.photo-container {
+			text-align: center;
+			margin-top: 10px;
+			padding: 20px;
+		}
+
+		.photo-frame {
+			width: 120px;
+			height: 160px;
+			border: 2px dashed #4299e1;
+			margin: 0 auto;
+			background: #f8fafc;
+			overflow: hidden;
+			position: relative;
+			cursor: pointer;
+			transition: all 0.3s ease;
+			border-radius: 4px;
+		}
+
+		.photo-frame:hover {
+			border-color: #2b6cb0;
+			box-shadow: 0 2px 4px rgba(66, 153, 225, 0.1);
+		}
+
+		.photo-frame.dragover {
+			border-color: #2b6cb0;
+			background-color: rgba(66, 153, 225, 0.05);
+		}
+
+		.student-photo {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.photo-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(255, 255, 255, 0.95);
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.photo-frame:hover .photo-overlay {
+			opacity: 1;
+		}
+
+		.photo-overlay i {
+			font-size: 24px;
+			margin-bottom: 12px;
+			background: linear-gradient(45deg, #4299e1, #2b6cb0);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		.photo-overlay p {
+			font-size: 14px;
+			margin: 0;
+			padding: 0 10px;
+			text-align: center;
+			line-height: 1.5;
+			background: linear-gradient(45deg, #4299e1, #2b6cb0);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: 500;
+		}
+
+		.photo-label {
+			margin-top: 12px;
+			color: #4a5568;
+			font-size: 14px;
+			font-weight: 500;
+			text-align: center;
+		}
+
+		/* 添加照片上传提示动画 */
+		@keyframes bounce {
+			0%, 100% { transform: translateY(0); }
+			50% { transform: translateY(-3px); }
+		}
+
+		.photo-frame:hover .photo-overlay i {
+			animation: bounce 1s infinite;
+		}
+
+		/* 申请报名信息样式 */
+		.custom-select {
+			height: calc(1.5em + 1rem + 2px);
+			padding: .5rem 1rem;
+			font-size: 1rem;
+			font-weight: 400;
+			line-height: 1.5;
+			background-color: #fff;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+			transition: all .2s ease;
+		}
+
+		.custom-select:focus {
+			border-color: #4299e1;
+			box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+		}
+
+		.custom-select:disabled {
+			background-color: #f7fafc;
+			cursor: not-allowed;
+		}
+
+		.custom-textarea {
+			resize: vertical;
+			min-height: 100px;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+			transition: all .2s ease;
+		}
+
+		.custom-textarea:focus {
+			border-color: #4299e1;
+			box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+		}
+
+		.required-star {
+			color: #e53e3e;
+			margin-left: 2px;
+		}
+
+		.form-label {
+			font-weight: 500;
+			color: #2d3748;
+			margin-bottom: .5rem;
+		}
+
+		.input-group-text {
+			background-color: #f7fafc;
+			border: 1px solid #e2e8f0;
+		}
+
+		.alert-float {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 9999;
+			min-width: 250px;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		}
+
+		/* 日期选择器样式 */
+		.bootstrap-datetimepicker-widget {
+			background-color: #fff;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+		}
+
+		.bootstrap-datetimepicker-widget table td.disabled, 
+		.bootstrap-datetimepicker-widget table td.disabled:hover {
+			background-color: #f7fafc;
+			color: #a0aec0;
+			cursor: not-allowed;
+		}
+
+		.was-validated .form-control:invalid,
+		.form-control.is-invalid {
+			border-color: #e53e3e;
+			padding-right: calc(1.5em + .75rem);
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23e53e3e' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23e53e3e' stroke='none'/%3e%3c/svg%3e");
+			background-repeat: no-repeat;
+			background-position: right calc(.375em + .1875rem) center;
+			background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+		}
+
+		.invalid-tooltip {
+			position: absolute;
+			top: 100%;
+			z-index: 5;
+			display: none;
+			max-width: 100%;
+			padding: .25rem .5rem;
+			margin-top: .1rem;
+			font-size: .875rem;
+			line-height: 1.5;
+			color: #fff;
+			background-color: #e53e3e;
+			border-radius: .25rem;
+		}
+
+		/* 日期选择器样式优化 */
+		.datepicker {
+			padding: 10px;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+			background-color: #fff;
+			z-index: 1060 !important;
+		}
+
+		.datepicker-days {
+			padding: 5px;
+		}
+
+		.datepicker table {
+			width: 100%;
+		}
+
+		.datepicker table tr td,
+		.datepicker table tr th {
+			text-align: center;
+			width: 30px;
+			height: 30px;
+			border-radius: .25rem;
+		}
+
+		.datepicker table tr td.day:hover {
+			background: #e9ecef;
+			cursor: pointer;
+		}
+
+		.datepicker table tr td.active,
+		.datepicker table tr td.active:hover {
+			background-color: #4299e1 !important;
+			color: #fff;
+		}
+
+		.datepicker table tr td.today {
+			background-color: #ebf8ff;
+			color: #2b6cb0;
+		}
+
+		.datepicker .datepicker-switch,
+		.datepicker .prev,
+		.datepicker .next {
+			cursor: pointer;
+			padding: 5px;
+		}
+
+		.datepicker .datepicker-switch:hover,
+		.datepicker .prev:hover,
+		.datepicker .next:hover {
+			background: #e9ecef;
+			border-radius: .25rem;
+		}
+
+		.datepicker-quick-picks {
+			margin-top: 10px;
+			padding: 8px;
+			background-color: #f8fafc;
+			border: 1px solid #e2e8f0;
+			border-radius: .375rem;
+		}
+
+		.datepicker-quick-picks .btn {
+			padding: 4px 8px;
+			font-size: 12px;
+		}
+
+		.datepicker-quick-picks .btn:hover {
+			background-color: #4299e1;
+			border-color: #4299e1;
+			color: #fff;
+		}
+
+		/* 表单验证样式 */
+		.was-validated .form-control:invalid:focus,
+		.was-validated .custom-select:invalid:focus {
+			border-color: #e53e3e;
+			box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15);
+		}
+
+		.was-validated .form-control:valid:focus,
+		.was-validated .custom-select:valid:focus {
+			border-color: #48bb78;
+			box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.15);
+		}
+
+		/* 加载动画样式 */
+		.spinner-border-sm {
+			width: 1rem;
+			height: 1rem;
+			border-width: 0.2em;
+		}
+
+		/* 过渡效果 */
+		.form-control,
+		.custom-select {
+			transition: all 0.2s ease-in-out;
+		}
+
+		.form-control:disabled,
+		.custom-select:disabled {
+			background-color: #f7fafc;
+			cursor: not-allowed;
+		}
+
+		/* 提示信息样式 */
+		.alert-float {
+			animation: slideIn 0.3s ease-out;
+		}
+
+		/* 承诺声明样式 */
+		.custom-control-label {
+			font-size: 1rem;
+			color: #2d3748;
+			padding-top: 2px;
+		}
+
+		.custom-control-label::before {
+			width: 1.25rem;
+			height: 1.25rem;
+			border-radius: .25rem;
+			border: 2px solid #e2e8f0;
+			background-color: #fff;
+			transition: all .2s ease;
+		}
+
+		.custom-control-label::after {
+			width: 1.25rem;
+			height: 1.25rem;
+		}
+
+		.custom-control-input:checked ~ .custom-control-label::before {
+			border-color: #4299e1;
+			background-color: #4299e1;
+		}
+
+		.custom-control-input:focus ~ .custom-control-label::before {
+			box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15);
+		}
+
+		.custom-control {
+			padding-left: 2rem;
+		}
+
+		.custom-control-input:disabled ~ .custom-control-label::before {
+			background-color: #f7fafc;
+		}
+
+		/* 提交按钮样式 */
+		.form-submit .btn {
+			min-width: 200px;
+			font-weight: 600;
+			letter-spacing: 1px;
+			transition: all .3s ease;
+		}
+
+		.form-submit .btn:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		}
+
+		@keyframes slideIn {
+			from {
+				transform: translateY(-100%);
+				opacity: 0;
+			}
+			to {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<nav class="navbar navbar-expand-lg navbar-transparent navbar-dark py-4">
+			<div class="container">
+				<a class="navbar-brand" href="#"><img src="../assets/images/backgrounds/logo.png" width="80%">
+					<!-- <strong>"一站式"学生服务信息平台</strong>（试运行） --></a>
+				<button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main"
+					aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+					<ul class="navbar-nav ml-auto align-items-lg-center">
+						<li class="nav-item">
+							<a class="nav-link" href="http://www.hngzy.edu.cn/">学院主页</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="../main.html">系统应用</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="#">流程服务</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="index.jsp?choice=4">数据中心</a>
+						</li>
+						<li class="nav-item">
+							<div class="dropdown">
+								<button class="btn btn-primary btn-icon-only rounded-circle" type="button"
+									id="dropdown_user_account" data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									<!-- <span class="btn-inner--icon">
+											<i class="fas fa-user"></i>
+										</span>  -->
+									<img src="../assets/images/avatars/user.jpg" class="avatar avatar-lg mr-3"
+										style="width: 50px; height: 50px;">
+								</button>
+								<div class="dropdown-menu" aria-labelledby="dropdown_user_account">
+									<h6 class="dropdown-header">我是学号</h6>
+									<a class="dropdown-item" href="#">
+										<span class="float-right badge badge-primary">4</span>
+										<i class="fas fa-envelope text-primary"></i>系统消息
+									</a>
+									<a class="dropdown-item" href="#">
+										<i class="fas fa-cog text-primary"></i>个人资料
+									</a>
+									<div class="dropdown-divider" role="presentation"></div>
+									<a class="dropdown-item" href="#">
+										<i class="fas fa-sign-out-alt text-primary"></i>退出登录
+									</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- 轮播图 -->
+		<div class="banner-carousel">
+			<div id="carouselExample" class="carousel slide" data-ride="carousel">
+				<!-- 添加轮播指示器 -->
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExample" data-slide-to="1" class="active"></li>
+
+				</ol>
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="../assets/images/brand/banner1.jpg" alt="Banner 1">
+						<!-- 修改文字内容结构 -->
+						<div class="text-overlay">
+							<div class="text-center">
+								<img src="../assets/images/brand/icon.png" style="width: 200px;"
+									class="img-fluid animated" data-animation-in="jackInTheBox"
+									data-animation-delay="1000">
+								<h2 class="heading display-4 font-weight-400 text-white mt-5 animated"
+									data-animation-in="fadeInUp" data-animation-delay="2000">
+									<span class="font-weight-600">"一站式"学生社区综合服务平台</span>V0.5（试运行）
+								</h2>
+								<p class="lead text-white mt-3 lh-180 c-white animated" data-animation-in="fadeInUp"
+									data-animation-delay="2500">
+									One-Stop Student Community Comprehensive Service Platform V0.5 (Pilot Run)
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="http://www.hngzy.edu.cn/images/banner.png" alt="Banner 2">
+						<!-- 修改文字内容结构 -->
+						<div class="text-overlay">
+							<div class="text-center">
+								<img src="../assets/images/brand/icon.png" style="width: 200px;"
+									class="img-fluid animated" data-animation-in="jackInTheBox"
+									data-animation-delay="1000">
+								<h2 class="heading display-4 font-weight-400 text-white mt-5 animated"
+									data-animation-in="fadeInUp" data-animation-delay="2000">
+									<span class="font-weight-600">"一站式"学生社区综合服务平台</span>V0.5（试运行）
+								</h2>
+								<p class="lead text-white mt-3 lh-180 c-white animated" data-animation-in="fadeInUp"
+									data-animation-delay="2500">
+									One-Stop Student Community Comprehensive Service Platform V0.5 (Pilot Run)
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- 轮播图结束 -->
+	<main class="detail-container">
+		<!-- 左侧导航栏 -->
+		<div class="detail-sidebar">
+			<!-- 导航标签切换 -->
+			<div class="detail-tabs">
+				<div class="detail-tab active" data-type="theme">按主题</div>
+				<div class="detail-tab" data-type="department">按部门</div>
+			</div>
+
+			<!-- 主题导航菜单 -->
+			<div class="detail-menu" id="themeMenu">
+				<div class="detail-menu-item active" data-category="all">
+					全部事项 <span class="detail-badge">24</span>
+				</div>
+				<div class="detail-menu-item">
+					教学服务 <span class="detail-badge">3</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="teaching">教务系统</div>
+						<div class="detail-submenu-item" data-category="teaching">认证考试报名申请</div>
+						<div class="detail-submenu-item" data-category="teaching">图书借阅</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					生活服务 <span class="detail-badge">3</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="life">外校人员入校申请</div>
+						<div class="detail-submenu-item" data-category="life">教室维修申请</div>
+						<div class="detail-submenu-item" data-category="life">寝室维修申请</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					育人服务 <span class="detail-badge">7</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="education">学生证申请</div>
+						<div class="detail-submenu-item" data-category="education">应征入伍申请</div>
+						<div class="detail-submenu-item" data-category="education">校外住宿申请</div>
+						<div class="detail-submenu-item" data-category="education">荣誉称号申请</div>
+						<div class="detail-submenu-item" data-category="education">违纪处分办理</div>
+						<div class="detail-submenu-item" data-category="education">学生活动申请</div>
+						<div class="detail-submenu-item" data-category="education">志愿服务申请</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					资助服务 <span class="detail-badge">4</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="aid">勤工助学申请</div>
+						<div class="detail-submenu-item" data-category="aid">家庭经济困难申请</div>
+						<div class="detail-submenu-item" data-category="aid">奖助学金申请</div>
+						<div class="detail-submenu-item" data-category="aid">心理咨询预约</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					发展服务 <span class="detail-badge">7</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="career">AI智能简历</div>
+						<div class="detail-submenu-item" data-category="career">网上签约</div>
+						<div class="detail-submenu-item" data-category="career">毕业去向登记</div>
+						<div class="detail-submenu-item" data-category="career">职业生涯咨询预约</div>
+						<div class="detail-submenu-item" data-category="career">职位化精准推送</div>
+						<div class="detail-submenu-item" data-category="career">校园招聘信息查询</div>
+						<div class="detail-submenu-item" data-category="career">大学生创业申请</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 部门导航菜单 -->
+			<div class="detail-menu" id="departmentMenu" style="display: none;">
+				<div class="detail-menu-item active" data-category="all">
+					全部事项 <span class="detail-badge">24</span>
+				</div>
+				<div class="detail-menu-item">
+					教务处 <span class="detail-badge">2</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="teaching">教务系统</div>
+						<div class="detail-submenu-item" data-category="teaching">认证考试报名申请</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					招生就业处 <span class="detail-badge">7</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="career">AI智能简历</div>
+						<div class="detail-submenu-item" data-category="career">网上签约</div>
+						<div class="detail-submenu-item" data-category="career">毕业去向登记</div>
+						<div class="detail-submenu-item" data-category="career">职业生涯咨询预约</div>
+						<div class="detail-submenu-item" data-category="career">职位化精准推送</div>
+						<div class="detail-submenu-item" data-category="career">校园招聘信息查询</div>
+						<div class="detail-submenu-item" data-category="career">大学生创业申请</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					学生工作部 <span class="detail-badge">11</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="education">学生证申请</div>
+						<div class="detail-submenu-item" data-category="education">应征入伍申请</div>
+						<div class="detail-submenu-item" data-category="education">校外住宿申请</div>
+						<div class="detail-submenu-item" data-category="education">荣誉称号申请</div>
+						<div class="detail-submenu-item" data-category="education">违纪处分办理</div>
+						<div class="detail-submenu-item" data-category="aid">勤工助学申请</div>
+						<div class="detail-submenu-item" data-category="aid">家庭经济困难申请</div>
+						<div class="detail-submenu-item" data-category="aid">奖助学金申请</div>
+						<div class="detail-submenu-item" data-category="aid">心理咨询预约</div>
+						<div class="detail-submenu-item" data-category="education">学生活动申请</div>
+						<div class="detail-submenu-item" data-category="education">志愿服务申请</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					保卫处 <span class="detail-badge">1</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="life">外校人员入校申请</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					图书馆 <span class="detail-badge">1</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="teaching">图书借阅</div>
+					</div>
+				</div>
+				<div class="detail-menu-item">
+					总务处 <span class="detail-badge">2</span>
+					<div class="detail-submenu">
+						<div class="detail-submenu-item" data-category="life">教室维修申请</div>
+						<div class="detail-submenu-item" data-category="life">寝室维修申请</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 右侧内容区 -->
+		<div class="detail-content">
+			<!-- 面包屑导航 -->
+			<div class="detail-breadcrumb">
+				<span class="detail-breadcrumb-item"><a href="detail.html">功能申请</a></span>
+				<span class="detail-breadcrumb-item" id="serviceName">认证考试报名申请</span>
+				<!-- id="serviceName" -->
+			</div>
+
+			<!-- 申请表单卡片 -->
+			<div class="detail-get-card">
+				<!-- 表单标题 -->
+				<div class="detail-get-header">
+					<!-- <h3>动态插入标题</h3> -->
+					<h3>认证考试报名申请</h3>
+					<div class="detail-get-meta">
+						<span class="detail-get-subtitle">请认真填写以下信息，带 <i style="color: red;">*</i> 号的为必填项</span>
+						<span class="detail-get-department"><!-- 动态插入部门 -->教务处</span>
+					</div>
+				</div>
+
+				<!-- 申请表单 -->
+				<form id="applicationForm" class="detail-get-form">
+					<!-- 个人信息部分 -->
+					<div class="form-section">
+						<h4 class="section-title">学生基本信息</h4>
+						<div class="row">
+							<!-- 左侧信息 -->
+							<div class="col-md-9">
+								<div class="row">
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="studentId" class="form-label">学号 <i
+													class="required-star">*</i></label>
+											<input type="text" id="studentId" name="studentId"
+												class="form-control custom-input" value="2021001" readonly>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="studentName" class="form-label">姓名 <i
+													class="required-star">*</i></label>
+											<input type="text" id="studentName" name="studentName"
+												class="form-control custom-input" value="张三" readonly>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="idCard" class="form-label">身份证号 <i
+													class="required-star">*</i></label>
+											<input type="text" id="idCard" name="idCard"
+												class="form-control custom-input" value="230************123" readonly>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="politicalStatus" class="form-label">政治面貌 <i
+													class="required-star">*</i></label>
+											<input type="text" id="politicalStatus" name="politicalStatus"
+												class="form-control custom-input" value="共青团员" readonly>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="college" class="form-label">所在学院 <i
+													class="required-star">*</i></label>
+											<input type="text" id="college" name="college"
+												class="form-control custom-input" value="信息工程学院" readonly>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="major" class="form-label">专业班级 <i
+													class="required-star">*</i></label>
+											<input type="text" id="major" name="major" class="form-control custom-input"
+												value="软件技术" readonly>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 右侧照片 -->
+							<div class="col-md-3">
+								<div class="photo-container">
+									<div class="photo-frame" id="photoDropZone">
+										<input type="file" id="photoInput" accept="image/*" style="display: none;">
+										<img src="../assets/images/avatars/user.jpg" alt="用户照片" class="student-photo" id="photoPreview">
+										<div class="photo-overlay">
+											<i class="fas fa-cloud-upload-alt"></i>
+											<p>点击或拖拽上传照片</p>
+											<!-- <p>支持 jpg、png 格式</p> -->
+										</div>
+									</div>
+									<div class="photo-label">一寸证件照</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- 申请信息部分 -->
+					<div class="form-section">
+						<h4 class="section-title">申请报名信息</h4>
+						<form class="needs-validation" novalidate>
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<div class="form-group">
+										<label for="examCategory" class="form-label">考试类别 <i class="required-star">*</i></label>
+										<select id="examCategory" name="examCategory" class="form-control form-select" required>
+											<option value="">请选择考试类别</option>
+											<option value="english">英语等级考试</option>
+											<option value="1+x">1+X 职业技能等级考试</option>
+											<option value="huawei">华为认证考试</option>
+											<option value="aliyun">阿里云认证考试</option>
+										</select>
+										<div class="invalid-feedback">
+											请选择考试类别
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<div class="form-group">
+										<label for="examSubject" class="form-label">考试科目 <i class="required-star">*</i></label>
+										<div class="input-group">
+											<select id="examSubject" name="examSubject" class="form-control form-select" required>
+												<option value="">请选择考试科目</option>
+												<!-- 英语等级考试科目 -->
+												<option value="CET4">大学英语四级</option>
+												<option value="CET6">大学英语六级</option>
+												<option value="PET">专业英语等级考试</option>
+												<!-- 1+X考试科目 -->
+												<option value="WebDev">Web前端开发</option>
+												<option value="Python">大数据应用开发(Python)</option>
+												<!-- 华为认证考试科目 -->
+												<option value="Router">路由交换</option>
+												<option value="Cloud">云计算</option>
+												<option value="AI">人工智能</option>
+												<!-- 阿里云认证考试科目 -->
+												<option value="AliCloud">云计算</option>
+												<option value="BigData">大数据</option>
+												<option value="IoT">物联网</option>
+											</select>
+											<div class="invalid-feedback">
+												请选择考试科目
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<div class="form-group">
+										<label for="examLevel" class="form-label">考试等级 <i class="required-star">*</i></label>
+										<div class="input-group">
+											<select id="examLevel" name="examLevel" class="form-control form-select" required>
+												<option value="">请选择考试等级</option>
+												<!-- 英语等级考试等级 -->
+												<option value="CET4">CET4</option>
+												<option value="CET6">CET6</option>
+												<option value="A">A级</option>
+												<option value="B">B级</option>
+												<option value="C">C级</option>
+												<!-- 1+X考试等级 -->
+												<option value="Junior">初级</option>
+												<option value="Intermediate">中级</option>
+												<option value="Senior">高级</option>
+												<!-- 华为认证考试等级 -->
+												<option value="HCIA">HCIA</option>
+												<option value="HCIP">HCIP</option>
+												<option value="HCIE">HCIE</option>
+												<!-- 阿里云认证考试等级 -->
+												<option value="ACA">ACA</option>
+												<option value="ACP">ACP</option>
+												<option value="ACE">ACE</option>
+											</select>
+											<div class="invalid-feedback">
+												请选择考试等级
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<div class="form-group">
+										<label for="examTime" class="form-label">考试时间 <i class="required-star">*</i></label>
+										<div class="input-group">
+											<input type="date" class="form-control" id="examTime" 
+												name="examTime" required
+												placeholder="请选择考试时间">
+											<div class="invalid-feedback">
+												请选择考试时间
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group mt-4">
+								<label for="applyReason">特殊情况说明
+									<small class="text-muted">(选填)</small>
+								</label>
+								<textarea id="applyReason" name="applyReason" class="form-control custom-textarea" rows="4"
+									placeholder="如有特殊情况，请在此说明..."></textarea>
+							</div>
+
+							<div class="form-group">
+								<label for="attachments">证明材料上传
+									<small class="text-muted">(选填)</small>
+								</label>
+								<div class="upload-area" id="uploadArea">
+									<div class="upload-default">
+										<i class="fas fa-cloud-upload-alt"></i>
+										<p class="upload-text">点击或拖拽文件到此处上传</p>
+										<p class="upload-tips">支持jpg、png、pdf格式，单个文件不超过10M（如有需要才上传）</p>
+									</div>
+									<div class="upload-preview" style="display: none;">
+										<ul class="upload-list"></ul>
+									</div>
+									<input type="file" id="attachments" name="attachments" class="upload-input" multiple
+										accept=".jpg,.jpeg,.png,.pdf">
+								</div>
+							</div>
+
+							<!-- 承诺声明 -->
+							<div class="form-group mt-4">
+								<div class="custom-control custom-checkbox">
+									<input type="checkbox" class="custom-control-input" id="declaration" name="declaration" required>
+									<label class="custom-control-label" for="declaration">
+										本人承诺所提交的信息真实有效，如有虚假愿承担相应责任 <i class="required-star">*</i>
+									</label>
+									<div class="invalid-feedback">
+										请确认承诺声明
+									</div>
+								</div>
+							</div>
+
+							<!-- 提交按钮 -->
+							<div class="form-submit text-center mt-4">
+								<button type="submit" class="btn btn-primary btn-lg px-5">提交申请</button>
+							</div>
+						</form>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+	<footer class="pt-5 pb-3 footer  footer-dark bg-tertiary  bj  ">
+		<!-- bg-size--cover -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<div class="pr-lg-5">
+						<h1 class="heading h6 text-uppercase font-weight-700 mb-3"><a href="http://www.hngzy.edu.cn">
+								<img src="http://www.hngzy.edu.cn/images/foot-logo.png" width="100%"></a></h1>
+						<P><img src="../assets/images/backgrounds/xx.png"></P>
+					</div>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">新手入门</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">名词解释</a></li>
+						<li><a class="text-muted" href="#">使用手册（学生端）</a></li>
+						<li><a class="text-muted" href="#">操作文档（教师端）</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">服务支持</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">帮助中心</a></li>
+						<li><a class="text-muted" href="#">隐私政策</a></li>
+						<li><a class="text-muted" href="#">服务协议</a></li>
+						<li><a class="text-muted" href="#">知识产权</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">加入我们</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">社团</a></li>
+						<li><a class="text-muted" href="#">新媒体</a></li>
+						<li><a class="text-muted" href="#">志愿服务队</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">友情链接</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="https://hljswkj.jw.chaoxing.com/admin/login">教务系统</a></li>
+						<li><a class="text-muted" href="https://www.hljbys.org.cn/school/index?mark=hngzy">就业平台</a>
+						</li>
+						<li><a class="text-muted" href="#">VPN客户端</a></li>
+						<li><a class="text-muted" href="#">双创竞赛平台</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<div class="d-flex align-items-center">
+				<span class="">
+					Copyright &copy; 2025 <a href="http://www.hngzy.edu.cn/index.htm" class="footer-link"
+						target="_blank">黑龙江农业工程职业学院 · 版权所有</a> All Rights Reserved <a href="https://beian.miit.gov.cn/"
+						class="footer-link" target="_blank">黑ICP备05004682号-1</a>
+				</span>
+				<ul class="nav ml-lg-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="http://www.hngzy.edu.cn/" target="_blank"><i
+								class="fas fa-university"></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="http://weixin.qq.com/r/GkhocHPE6y6UrTcT9x0I" target="_blank"><i
+								class="fab fa-weixin"></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://im.qq.com/index/" target="_blank"><i
+								class="fab fa-qq"></i></a>
+					</li>
+					<!-- <li class="nav-item">
+							<a class="nav-link active" href="https://www.douyin.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+						</li> -->
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- Core -->
+	<script src="../assets/vendor/jquery/jquery.min.js"></script>
+	<script src="../assets/vendor/popper/popper.min.js"></script>
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+	<!-- FontAwesome 5 -->
+	<script src="../assets/vendor/fontawesome/js/fontawesome-all.min.js" defer></script>
+	<!-- Page plugins -->
+	<script src="../assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+	<script src="../assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+	<script src="../assets/vendor/input-mask/input-mask.min.js"></script>
+	<script src="../assets/vendor/nouislider/js/nouislider.min.js"></script>
+	<script src="../assets/vendor/textarea-autosize/textarea-autosize.min.js"></script>
+	<!-- Theme JS -->
+	<script src="../assets/js/theme.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<!-- 添加 Bootstrap Datepicker JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+	<script>
+	/**
+	 * 认证考试报名申请页面脚本
+	 */
+	(function() {
+		'use strict';
+		
+		// 常量定义
+		const CONSTANTS = {
+			FILE_SIZE_LIMIT: 10 * 1024 * 1024, // 10MB
+			ALERT_DURATION: 3000,
+			ALLOWED_FILE_TYPES: ['.jpg', '.jpeg', '.png', '.pdf']
+		};
+
+		// DOM元素缓存
+		const DOM = {
+			uploadArea: $('#uploadArea'),
+			uploadInput: $('.upload-input'),
+			uploadList: $('.upload-list'),
+			uploadPreview: $('.upload-preview'),
+			uploadDefault: $('.upload-default'),
+			photoFrame: $('#photoDropZone'),
+			photoInput: $('#photoInput'),
+			photoPreview: $('#photoPreview'),
+			applicationForm: $('#applicationForm')
+		};
+
+		/**
+		 * 页面初始化
+		 */
+		function init() {
+			bindEvents();
+			initFormValidation();
+		}
+
+		/**
+		 * 绑定事件处理
+		 */
+		function bindEvents() {
+			// 文件上传区域事件
+			bindFileUploadEvents();
+			// 照片上传事件
+			bindPhotoUploadEvents();
+		}
+
+		/**
+		 * 绑定文件上传相关事件
+		 */
+		function bindFileUploadEvents() {
+			// 拖拽效果
+			DOM.uploadArea.on('dragover', handleDragOver)
+				.on('dragleave drop', handleDragLeave);
+
+			// 文件选择处理
+			DOM.uploadInput.on('change', handleFileSelect);
+		}
+
+		/**
+		 * 绑定照片上传相关事件
+		 */
+		function bindPhotoUploadEvents() {
+			DOM.photoFrame.on('click', () => DOM.photoInput.click())
+				.on('dragover', handleDragOver)
+				.on('dragleave', handleDragLeave)
+				.on('drop', handlePhotoDrop);
+
+			DOM.photoInput.on('change', handlePhotoSelect);
+		}
+
+		/**
+		 * 处理拖拽悬停
+		 * @param {Event} e - 事件对象
+		 */
+		function handleDragOver(e) {
+			e.preventDefault();
+			$(this).addClass('dragover');
+		}
+
+		/**
+		 * 处理拖拽离开
+		 * @param {Event} e - 事件对象
+		 */
+		function handleDragLeave(e) {
+			e.preventDefault();
+			$(this).removeClass('dragover');
+		}
+
+		/**
+		 * 处理文件选择
+		 * @param {Event} e - 事件对象
+		 */
+		function handleFileSelect(e) {
+			const files = e.target.files;
+			if (files.length === 0) return;
+
+			DOM.uploadDefault.hide();
+			DOM.uploadPreview.show();
+
+			Array.from(files).forEach(file => {
+				const isValid = validateFile(file);
+				addFilePreview(file, isValid);
+			});
+		}
+
+		/**
+		 * 处理照片选择
+		 * @param {Event} e - 事件对象
+		 */
+		function handlePhotoSelect(e) {
+			const file = e.target.files[0];
+			if (file && file.type.startsWith('image/')) {
+				previewPhoto(file);
+			} else {
+				showAlert('请上传图片文件', 'warning');
+			}
+		}
+
+		/**
+		 * 处理照片拖放
+		 * @param {Event} e - 事件对象
+		 */
+		function handlePhotoDrop(e) {
+			e.preventDefault();
+			$(this).removeClass('dragover');
+			
+			const file = e.originalEvent.dataTransfer.files[0];
+			if (file && file.type.startsWith('image/')) {
+				previewPhoto(file);
+			} else {
+				showAlert('请上传图片文件', 'warning');
+			}
+		}
+
+		/**
+		 * 验证文件
+		 * @param {File} file - 文件对象
+		 * @returns {boolean} 验证结果
+		 */
+		function validateFile(file) {
+			const allowedTypes = ['image/jpeg', 'image/png', 'application/pdf'];
+			return allowedTypes.includes(file.type) && file.size <= CONSTANTS.FILE_SIZE_LIMIT;
+		}
+
+		/**
+		 * 添加文件预览
+		 * @param {File} file - 文件对象
+		 * @param {boolean} isValid - 文件是否有效
+		 */
+		function addFilePreview(file, isValid) {
+			const status = isValid ? 'success' : 'error';
+			const statusText = isValid ? '准备上传' : '文件无效';
+
+			const $item = $(`
+				<li class="upload-item">
+					<i class="fas ${getFileIcon(file.name)} upload-item-icon"></i>
+					<span class="upload-item-name">${file.name}</span>
+					<span class="upload-item-size">${formatFileSize(file.size)}</span>
+					<span class="upload-item-status ${status}">${statusText}</span>
+					<div class="upload-item-actions">
+						<i class="fas fa-times" title="移除"></i>
+					</div>
+				</li>
+			`);
+
+			$item.find('.fa-times').on('click', () => removeFilePreview($item));
+			DOM.uploadList.append($item);
+		}
+
+		/**
+		 * 移除文件预览
+		 * @param {jQuery} $item - 预览项元素
+		 */
+		function removeFilePreview($item) {
+			$item.remove();
+			if (DOM.uploadList.children().length === 0) {
+				DOM.uploadPreview.hide();
+				DOM.uploadDefault.show();
+			}
+		}
+
+		/**
+		 * 预览照片
+		 * @param {File} file - 照片文件
+		 */
+		function previewPhoto(file) {
+			const reader = new FileReader();
+			reader.onload = e => DOM.photoPreview.attr('src', e.target.result);
+			reader.readAsDataURL(file);
+		}
+
+		/**
+		 * 获取文件图标
+		 * @param {string} filename - 文件名
+		 * @returns {string} 图标类名
+		 */
+		function getFileIcon(filename) {
+			if (filename.match(/\.(jpg|jpeg|png)$/i)) return 'fa-file-image';
+			if (filename.match(/\.pdf$/i)) return 'fa-file-pdf';
+			return 'fa-file';
+		}
+
+		/**
+		 * 格式化文件大小
+		 * @param {number} bytes - 字节数
+		 * @returns {string} 格式化后的大小
+		 */
+		function formatFileSize(bytes) {
+			if (bytes === 0) return '0 B';
+			const k = 1024;
+			const sizes = ['B', 'KB', 'MB', 'GB'];
+			const i = Math.floor(Math.log(bytes) / Math.log(k));
+			return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+		}
+
+		/**
+		 * 初始化表单验证
+		 */
+		function initFormValidation() {
+			const forms = document.getElementsByClassName('needs-validation');
+			Array.prototype.filter.call(forms, form => {
+				form.addEventListener('submit', event => {
+					if (!form.checkValidity()) {
+						event.preventDefault();
+						event.stopPropagation();
+						showAlert('请填写所有必填项', 'danger');
+					} else {
+						showAlert('提交成功', 'success');
+					}
+					form.classList.add('was-validated');
+				}, false);
+			});
+		}
+
+		/**
+		 * 显示提示信息
+		 * @param {string} message - 提示信息
+		 * @param {string} type - 提示类型
+		 */
+		function showAlert(message, type = 'success') {
+			const alert = $(`
+				<div class="alert alert-${type} alert-dismissible fade show alert-float" role="alert">
+					${message}
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+			`);
+			$('body').append(alert);
+			setTimeout(() => alert.alert('close'), CONSTANTS.ALERT_DURATION);
+		}
+
+		// 页面加载完成后初始化
+		$(document).ready(init);
+	})();
+	</script>
+</body>
+
+</html>

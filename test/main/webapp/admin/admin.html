@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description"
+		content="Probably the most complete UI kit out there. Multiple functionalities and controls added,  extended color palette and beautiful typography, designed as its own extended version of Bootstrap at  the highest level of quality.                             ">
+	<meta name="author" content="Webpixels">
+	<title>"一站式"学生社区综合服务平台（试运行）</title>
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800|Roboto:400,500,700" rel="stylesheet">
+	<!-- Theme CSS -->
+	<link type="text/css" href="../assets/css/theme.css" rel="stylesheet">
+	<!-- Demo CSS - No need to use these in your project -->
+	<link type="text/css" href="../assets/css/demo.css" rel="stylesheet">
+	<link rel="stylesheet" href="../assets/css/admin_get.css">
+	<link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+
+<body>
+	<!-- <%
+			String adminid = (String) session.getAttribute("userid");
+			if (adminid == null) 
+			{
+			out.print("<script>alert('您无权访问该页');location.href='pages/sign_in.jsp'</script>");
+			} else 
+			{
+				 String dbName = "test";
+				 String userName = "root";
+				 String userPasswd = "root";
+				 String url = "jdbc:mysql://localhost:3306/" + dbName + "?useUnicode=true&characterEncoding=utf-8";
+				 Class.forName("com.mysql.jdbc.Driver");//复制完整的限定名称
+				 Connection conn = DriverManager.getConnection(url,userName,userPasswd);
+				 Statement stat = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+				 String sql = "select * from student";
+				 ResultSet rs = stat.executeQuery(sql);
+				//分页代码
+					String str=(String)request.getParameter("page");//获取当前的页码
+	                int pagesize=3;//定义每页中显示的记录数
+    	            rs.last();//指针指到最后一条记录
+	                int recordCount=rs.getRow();//获取当前记录的行号 
+	                int maxPage=0;
+	                maxPage=(recordCount%pagesize==0)?(recordCount/pagesize):(recordCount/pagesize+1);
+	                 if(str==null)
+	                 {
+	                    str="0";
+	                  }
+	                 int currentPage=Integer.parseInt(str);
+	                 if(currentPage<1)
+	                 {
+		               currentPage=1;
+	                 }
+	               else
+    	            {
+	 	              if(currentPage>maxPage)
+		            {
+			           currentPage=maxPage;
+		            }
+	                }
+	                int num=(currentPage-1)*pagesize+1;//获取当前页第一条记录的行号
+	                rs.absolute(num);
+				 %> -->
+	<div id="app">
+		<nav class="navbar navbar-expand-lg navbar-transparent navbar-dark py-4">
+			<div class="container">
+				<a class="navbar-brand" href="#"><img src="../assets/images/backgrounds/logo.png" width="80%">
+					<!-- <strong>"一站式"学生服务信息平台</strong>（试运行） --></a>
+				<button class="navbar-toggler" type="button" data-action="offcanvas-open" data-target="#navbar_main"
+					aria-controls="navbar_main" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="navbar-collapse offcanvas-collapse" id="navbar_main">
+					<ul class="navbar-nav ml-auto align-items-lg-center">
+						<li class="nav-item">
+							<a class="nav-link" href="index.jsp?choice=1">学院主页</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="index.jsp?choice=2">系统应用</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="index.jsp?choice=3">流程服务</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="index.jsp?choice=4">数据中心</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- 轮播图 -->
+		<div class="banner-carousel">
+			<div id="carouselExample" class="carousel slide" data-ride="carousel">
+				<!-- 添加轮播指示器 -->
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExample" data-slide-to="1"></li>
+				</ol>
+
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="../assets/images/brand/banner1.jpg" alt="Banner 1">
+						<!-- 修改文字内容结构 -->
+						<div class="text-overlay">
+							<div class="text-center">
+								<img src="../assets/images/brand/icon.png" style="width: 200px;"
+									class="img-fluid animated" data-animation-in="jackInTheBox"
+									data-animation-delay="1000">
+								<h2 class="heading display-4 font-weight-400 text-white mt-5 animated"
+									data-animation-in="fadeInUp" data-animation-delay="2000">
+									<span class="font-weight-600">"一站式"学生社区综合服务平台</span>V0.5（试运行）
+								</h2>
+								<p class="lead text-white mt-3 lh-180 c-white animated" data-animation-in="fadeInUp"
+									data-animation-delay="2500">
+									One-Stop Student Community Comprehensive Service Platform V0.5 (Pilot Run)
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<img src="http://www.hngzy.edu.cn/images/banner.png" alt="Banner 2">
+						<!-- 修改文字内容结构 -->
+						<div class="text-overlay">
+							<div class="text-center">
+								<img src="../assets/images/brand/icon.png" style="width: 200px;"
+									class="img-fluid animated" data-animation-in="jackInTheBox"
+									data-animation-delay="1000">
+								<h2 class="heading display-4 font-weight-400 text-white mt-5 animated"
+									data-animation-in="fadeInUp" data-animation-delay="2000">
+									<span class="font-weight-600">"一站式"学生社区综合服务平台</span>V0.5（试运行）
+								</h2>
+								<p class="lead text-white mt-3 lh-180 c-white animated" data-animation-in="fadeInUp"
+									data-animation-delay="2500">
+									One-Stop Student Community Comprehensive Service Platform V0.5 (Pilot Run)
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<!-- 轮播图结束 -->
+	<main class="main">
+		<div class="container">
+			<div class="row">
+				<!-- 左侧导航 -->
+				<div class="col-md-3">
+					<div class="left-nav">
+						<div class="card">
+							<div class="card-header">
+								<h3>系统功能菜单</h3>
+							</div>
+							<div class="menu-list">
+								<!-- 教务处 -->
+								<div class="menu-item">
+									<div class="main-menu">
+										教务处
+									</div>
+									<div class="sub-menu">
+										<a href="admin_jw.html" class="sub-menu-item">
+											认证考试审核
+										</a>
+									</div>
+								</div>
+
+								<!-- 学生工作部 -->
+								<div class="menu-item active">
+									<div class="main-menu">
+										学生工作部
+									</div>
+									<div class="sub-menu">
+										<a href="admin.html" class="sub-menu-item active">
+											学生信息管理
+										</a>
+										<a href="admin_Volunteering.html" class="sub-menu-item">
+											志愿服务审核
+										</a>
+									</div>
+								</div>
+
+								<!-- 保卫处 -->
+								<div class="menu-item disabled">
+									<div class="main-menu">
+										保卫处
+									</div>
+								</div>
+
+								<!-- 图书馆 -->
+								<div class="menu-item disabled">
+									<div class="main-menu">
+										图书馆
+									</div>
+								</div>
+
+								<!-- 总务处 -->
+								<div class="menu-item disabled">
+									<div class="main-menu">
+										总务处
+									</div>
+								</div>
+
+								<!-- 工具箱 -->
+								<div class="menu-item">
+									<div class="main-menu">
+										系统设置
+									</div>
+									<div class="sub-menu">
+										<a href="#" class="sub-menu-item">
+											退出登录
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 右侧内容 -->
+				<div class="col-md-9">
+					<div class="right-content">
+						<div class="content-section">
+							<!-- 添加面包屑导航和标题区域 -->
+							<div class="content-header">
+								<div class="header-top">
+									<div class="breadcrumb-nav">
+										<a href="#" class="breadcrumb-item">首页</a>
+										<span class="breadcrumb-separator">/</span>
+										<a href="#" class="breadcrumb-item">学生工作部</a>
+										<span class="breadcrumb-separator">/</span>
+										<a href="#" class="breadcrumb-item active"">学生信息管理</a>
+									</div>
+									<div class=" header-actions">
+											<button class="btn-help" title="帮助">
+												<i class="fas fa-question-circle"></i>
+											</button>
+											<button class="btn-refresh" title="刷新">
+												<i class="fas fa-sync-alt"></i>
+											</button>
+									</div>
+								</div>
+
+								<div class="content-title-wrapper">
+									<div class="title-section">
+										<h4 class="content-title">修改学籍信息</h4>
+										<span class="content-badge">学籍管理</span>
+									</div>
+									<p class="content-subtitle">在这里您可以修改学生的基本信息，包括姓名、政治面貌、性别和学籍状态等</p>
+								</div>
+
+								<div class="content-tabs">
+
+								</div>
+								<div class="table-responsive">
+									<table class="table table-hover table-centered">
+										<thead class="thead-light">
+											<tr>
+												<th class="text-center" style="width: 15%">学号</th>
+												<th class="text-center" style="width: 12%">姓名</th>
+												<th class="text-center" style="width: 5%">性别</th>
+												<th class="text-center" style="width: 10%">政治面貌</th>
+												<th class="text-center" style="width: 25%">状态</th>
+												<th class="text-center" style="width: 25%">操作</th>
+											</tr>
+										</thead>
+										<% for (int i=1; i <=pagesize; i++) { String stu_no=rs.getString(1);
+											//session.setAttribute("stu_no", stu_no); String stu_name=rs.getString(2);
+											//session.setAttribute("stu_name", stu_name); String
+											stu_sex=rs.getString(3); String stu_politicalstatus=rs.getString(4); String
+											stu_status=rs.getString("stu_status"); %>
+											<tbody>
+												<tr class="align-middle">
+													<td class="text-center">
+														<%=stu_no%>
+													</td>
+													<td class="text-center">
+														<%=stu_name%>
+													</td>
+													<td class="text-center">
+														<%=stu_sex%>
+													</td>
+													<td class="text-center">
+														<%=stu_politicalstatus%>
+													</td>
+													<td class="text-center">
+														<span>
+															<%=stu_status%>
+														</span>
+													</td>
+													<td class="text-center">
+														<div class="btn-group">
+															<a href="admin_stuupdate.jsp?stuid=<%=stu_no%>">
+																<button class="btn btn-sm btn-info edit-btn"
+																	data-toggle="tooltip" title="更新学籍状态">
+																	<i class="fas fa-edit"></i>
+																</button>
+															</a>
+															<a href="admin_studelete.jsp?stuid=<%=stu_no%>">
+																<button class="btn btn-sm btn-danger ml-2"
+																	data-toggle="tooltip" title="删除学生">
+																	<i class="fas fa-trash-alt"></i>
+																</button>
+															</a>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+											<% if (!rs.next()) { break; } num++; } %>
+									</table>
+								</div>
+								<table align="center" width="660"></table>
+								<tr>
+									<td align="center">
+										<p align="center">当前页数：[<%=currentPage%>/<%=maxPage%>]&nbsp;
+													<% if(currentPage>1)
+														{
+														%>
+														<a href="adminfy.jsp?page=1">第一页</a>　
+														<a href="adminfy.jsp.jsp?page=<%=currentPage-1%>">上一页</a>
+														<% } if(currentPage<maxPage) { %>
+															<a href="adminfy.jsp?page=<%=currentPage+1%>">下一页</a>　
+															<a href="adminfy.jsp?page=<%=maxPage%>">最后一页&nbsp;</a>
+															<% }%>
+										</p>
+
+									</td>
+								</tr>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</main>
+	<footer class="pt-5 pb-3 footer  footer-dark bg-tertiary  bj  ">
+		<!-- bg-size--cover -->
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-4">
+					<div class="pr-lg-5">
+						<h1 class="heading h6 text-uppercase font-weight-700 mb-3"><a href="http://www.hngzy.edu.cn">
+								<img src="http://www.hngzy.edu.cn/images/foot-logo.png" width="100%"></a></h1>
+						<P><img src="../assets/images/backgrounds/xx.png"></P>
+					</div>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">新手入门</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">名词解释</a></li>
+						<li><a class="text-muted" href="#">使用手册（学生端）</a></li>
+						<li><a class="text-muted" href="#">操作文档（教师端）</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">服务支持</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">帮助中心</a></li>
+						<li><a class="text-muted" href="#">隐私政策</a></li>
+						<li><a class="text-muted" href="#">服务协议</a></li>
+						<li><a class="text-muted" href="#">知识产权</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">加入我们</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">社团</a></li>
+						<li><a class="text-muted" href="#">新媒体</a></li>
+						<li><a class="text-muted" href="#">志愿服务队</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5 class="heading h6 text-uppercase font-weight-700 mb-3">友情链接</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="https://hljswkj.jw.chaoxing.com/admin/login">教务系统</a></li>
+						<li><a class="text-muted" href="https://www.hljbys.org.cn/school/index?mark=hngzy">就业平台</a>
+						</li>
+						<li><a class="text-muted" href="#">VPN客户端</a></li>
+						<li><a class="text-muted" href="#">双创竞赛平台</a></li>
+					</ul>
+				</div>
+			</div>
+			<hr>
+			<div class="d-flex align-items-center">
+				<span class="">
+					Copyright &copy; 2025 <a href="http://www.hngzy.edu.cn/index.htm" class="footer-link"
+						target="_blank">黑龙江农业工程职业学院 · 版权所有</a> All Rights Reserved <a href="https://beian.miit.gov.cn/"
+						class="footer-link" target="_blank">黑ICP备05004682号-1</a>
+				</span>
+				<ul class="nav ml-lg-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="http://www.hngzy.edu.cn/" target="_blank"><i
+								class="fas fa-university"></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="http://weixin.qq.com/r/GkhocHPE6y6UrTcT9x0I" target="_blank"><i
+								class="fab fa-weixin"></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="https://im.qq.com/index/" target="_blank"><i
+								class="fab fa-qq"></i></a>
+					</li>
+					<!-- <li class="nav-item">
+							<a class="nav-link active" href="https://www.douyin.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+						</li> -->
+				</ul>
+			</div>
+		</div>
+	</footer>
+	<!-- Core -->
+	<script src="../assets/vendor/jquery/jquery.min.js"></script>
+	<script src="../assets/vendor/popper/popper.min.js"></script>
+	<script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+	<!-- FontAwesome 5 -->
+	<script src="../assets/vendor/fontawesome/js/fontawesome-all.min.js" defer></script>
+	<!-- Page plugins -->
+	<script src="../assets/vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+	<script src="../assets/vendor/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+	<script src="../assets/vendor/input-mask/input-mask.min.js"></script>
+	<script src="../assets/vendor/nouislider/js/nouislider.min.js"></script>
+	<script src="../assets/vendor/textarea-autosize/textarea-autosize.min.js"></script>
+	<!-- Theme JS -->
+	<script src="../assets/js/theme.js"></script>
+	<script>
+		$(document).ready(function () {
+			// 初始化变量
+			let currentTab = 0;
+			const totalTabs = $('.tab-item').length;
+			const $tabItems = $('.tab-item');
+			const $tabPanes = $('.tab-pane');
+			const $prevBtn = $('#prevStep');
+			const $nextBtn = $('#nextStep');
+			const $submitBtn = $('#submitForm');
+			const $studentForm = $('#studentForm');
+
+			// 初始化：显示当前活动菜单的子菜单
+			$('.menu-item.active .sub-menu').show();
+
+			// 菜单点击处理
+			$('.main-menu').click(function (e) {
+				const menuItem = $(this).parent('.menu-item');
+				if (menuItem.hasClass('disabled')) return;
+
+				menuItem.toggleClass('active');
+				const subMenu = menuItem.find('.sub-menu');
+
+				if (menuItem.hasClass('active')) {
+					subMenu.slideDown(300);
+					$('.menu-item').not(menuItem).removeClass('active')
+						.find('.sub-menu').slideUp(300);
+				} else {
+					subMenu.slideUp(300);
+				}
+			});
+
+			// 子菜单项点击处理 - 移除阻止默认行为
+			$('.sub-menu-item').click(function () {
+				$('.sub-menu-item').removeClass('active');
+				$(this).addClass('active');
+				// 获取href属性并进行跳转
+				const href = $(this).attr('href');
+				if (href && href !== '#') {
+					window.location.href = href;
+				}
+			});
+
+			// 选项卡点击处理
+			$('.tab-item').click(function () {
+				const index = $(this).index();
+				if (validateCurrentTab()) {
+					switchTab(index);
+				}
+			});
+
+			// 切换选项卡函数
+			function switchTab(index) {
+				currentTab = index;
+
+				$tabItems.removeClass('active');
+				$tabItems.eq(index).addClass('active');
+
+				$tabPanes.removeClass('active');
+				$tabPanes.eq(index).addClass('active');
+
+				updateButtons();
+
+				$tabPanes.eq(index)
+					.css('opacity', '0')
+					.animate({ opacity: 1 }, 300);
+			}
+
+			// 更新按钮状态
+			function updateButtons() {
+				$prevBtn.prop('disabled', currentTab === 0);
+
+				if (currentTab === totalTabs - 1) {
+					$nextBtn.hide();
+					$submitBtn.show();
+				} else {
+					$nextBtn.show();
+					$submitBtn.hide();
+				}
+			}
+
+			// 上一步按钮点击处理
+			$prevBtn.click(function () {
+				if (currentTab > 0) {
+					switchTab(currentTab - 1);
+				}
+			});
+
+			// 下一步按钮点击处理
+			$nextBtn.click(function () {
+				if (validateCurrentTab()) {
+					if (currentTab < totalTabs - 1) {
+						switchTab(currentTab + 1);
+					}
+				}
+			});
+
+			// 表单提交处理
+			$studentForm.on('submit', function (e) {
+				e.preventDefault();
+
+				if (validateAllTabs()) {
+					const formData = new FormData(this);
+
+					// 转换FormData为对象以便查看
+					const formDataObj = {};
+					formData.forEach((value, key) => {
+						formDataObj[key] = value;
+					});
+
+					// 发送AJAX请求
+					$.ajax({
+						url: $(this).attr('action'),
+						type: 'POST',
+						data: formData,
+						processData: false,
+						contentType: false,
+						success: function (response) {
+							showSuccessMessage('保存成功！');
+							console.log('服务器响应：', response);
+						},
+						error: function (xhr, status, error) {
+							showErrorMessage('保存失败，请重试！');
+							console.error('提交错误：', error);
+						}
+					});
+				}
+			});
+
+			// 验证当前标签页
+			function validateCurrentTab() {
+				const $currentPane = $tabPanes.eq(currentTab);
+				const $inputs = $currentPane.find('input, select, textarea').filter('[required]');
+
+				let isValid = true;
+				$inputs.each(function () {
+					if (!this.checkValidity()) {
+						isValid = false;
+						showErrorMessage($(this).attr('placeholder') || $(this).prev('label').text() + '不能为空');
+						$(this).focus();
+						return false;
+					}
+
+					// 特殊字段验证
+					if (this.name === 'phone' || this.name === 'emergencyPhone') {
+						if (!validatePhone(this.value)) {
+							isValid = false;
+							showErrorMessage('请输入正确的手机号码');
+							$(this).focus();
+							return false;
+						}
+					}
+
+					if (this.name === 'email') {
+						if (!validateEmail(this.value)) {
+							isValid = false;
+							showErrorMessage('请输入正确的邮箱地址');
+							$(this).focus();
+							return false;
+						}
+					}
+				});
+
+				return isValid;
+			}
+
+			// 验证所有标签页
+			function validateAllTabs() {
+				let isValid = true;
+				const currentTabBackup = currentTab;
+
+				for (let i = 0; i < totalTabs; i++) {
+					currentTab = i;
+					if (!validateCurrentTab()) {
+						switchTab(i);
+						isValid = false;
+						break;
+					}
+				}
+
+				if (isValid) {
+					currentTab = currentTabBackup;
+				}
+
+				return isValid;
+			}
+
+			// 手机号码验证
+			function validatePhone(phone) {
+				return /^1[3-9]\d{9}$/.test(phone);
+			}
+
+			// 邮箱验证
+			function validateEmail(email) {
+				return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+			}
+
+			// 显示成功消息
+			function showSuccessMessage(message) {
+				alert(message); // 这里可以替换为更好的提示组件
+			}
+
+			// 显示错误消息
+			function showErrorMessage(message) {
+				alert(message); // 这里可以替换为更好的提示组件
+			}
+
+			// 刷新按钮点击处理
+			$('.btn-refresh').click(function () {
+				$(this).addClass('rotating');
+				setTimeout(() => {
+					$(this).removeClass('rotating');
+					location.reload();
+				}, 1000);
+			});
+
+			// 帮助按钮点击处理
+			$('.btn-help').click(function () {
+				showHelpMessage();
+			});
+
+			// 显示帮助信息
+			function showHelpMessage() {
+				const helpContent = `
+						<div class="help-content">
+							<h5>表单填写说明</h5>
+							<ul>
+								<li>带*号的字段为必填项</li>
+								<li>手机号码必须为11位数字</li>
+								<li>邮箱地址必须包含@符号</li>
+								<li>所有信息填写完整后才能提交</li>
+							</ul>
+						</div>
+					`;
+				alert(helpContent); // 这里可以替换为更好的对话框组件
+			}
+		});
+	</script>
+</body>
+
+</html>
